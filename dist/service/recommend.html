@@ -1,0 +1,682 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="author" content="jlab">
+	<meta name="keywords" content="키워드">
+
+	<!-- HTML Meta Tags -->
+	<title>유통데이터 서비스 플랫폼</title>
+	<meta name="description" content="대한상공회의소의 유통데이터 활용 및 분석 서비스 제공">
+
+	<!-- Facebook Meta Tags -->
+	<meta property="og:url" content="https://retaildb.or.kr/">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="유통데이터 서비스 플랫폼">
+	<meta property="og:description" content="대한상공회의소의 유통데이터 활용 및 분석 서비스 제공">
+	<meta property="og:image" content="https://retaildb.or.kr/images/common/img-og.png">
+
+	<!-- Twitter Meta Tags -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta property="twitter:domain" content="retaildb.or.kr">
+	<meta property="twitter:url" content="https://retaildb.or.kr/">
+	<meta name="twitter:title" content="유통데이터 서비스 플랫폼">
+	<meta name="twitter:description" content="대한상공회의소의 유통데이터 활용 및 분석 서비스 제공">
+	<meta name="twitter:image" content="https://retaildb.or.kr/images/common/img-og.png">
+	<!-- Meta Tags Generated via https://www.opengraph.xyz -->
+
+	<meta http-equiv="imagetoolbar" content="no">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<title>유통데이터서비스</title>
+
+	<link rel="shortcut icon" href="/images/common/favicon.ico">
+
+	<link rel="stylesheet" type="text/css" href="/css/common.css">
+	<link rel="stylesheet" type="text/css" href="/css/custom.css">
+	<script src="/js/jquery-1.8.3.min.js"></script>
+	<script src="/js/jquery.flexslider-min.js"></script>
+	<script src="/js/style.js"></script>
+	<script src="/js/util.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+	<style>
+		#header .topMember ul li.login a {
+			background: url('/images/common/member_btn_login.png') center center no-repeat;
+		}
+	</style>
+	<!--<style>
+.rankList .goods {
+	width: 150px;
+}
+.text-ellipsis {
+	display: table;
+	table-layout: fixed;
+	white-space: nowrap;
+	width: 100%;
+}
+.text-ellipsis > * {
+	display: table-cell;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+</style>-->
+	<link rel="stylesheet" type="text/css" href="/css/jquery-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="/css/MonthPicker.css" />
+	<script src="/js/jquery-ui.min.js"></script>
+	<script src="/js/MonthPicker.js"></script>
+	<style>
+		.topText span,
+		.dotList span {
+			color: #f16333;
+			font-weight: initial;
+			font-size: small;
+			margin-left: 10px
+		}
+
+		.sizeSgmt,
+		.recommendPoint {
+			text-align: center
+		}
+	</style>
+</head>
+
+<body>
+
+	<script type="text/javascript">
+		var thisLocation = [2, 5, 0, 0];
+
+		$(function() {
+			$("#monthSelector").MonthPicker({
+				Button: '<img src="/images/common/icon_date_more.png" title="선택" style="margin-top:-5px;cursor: pointer;"/>',
+				MonthFormat: "yymm",
+				i18n: {
+					year: '',
+					buttonText: '',
+					prevYear: '',
+					nextYear: '',
+					next12Years: '',
+					prev12Years: '',
+					nextLabel: '',
+					prevLabel: '',
+					jumpYears: '',
+					backTo: '',
+					months: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
+				},
+				OnAfterChooseMonth: function(selectedDate) {
+					var month = selectedDate.getMonth() + 1;
+					month = (month < 10) ? '0' + month : month;
+					$('#selectedMonth').text(selectedDate.getFullYear() + '. ' + month);
+
+					searchHotProducts($('.chartTop .dropMenu p.title').text(), getSelectedMonth());
+				}
+			});
+
+			var dropMenuTitle = $('.chartTop .dropMenu p.title');
+			var dropMenuList = $('.chartTop .dropMenu > ul > li');
+			dropMenuList.each(function() {
+				$(this).children('a').click(function(e) {
+					e.preventDefault();
+					var txt = $(this).find('span').text()
+					dropMenuTitle.text(txt);
+
+					searchHotProducts(txt, getSelectedMonth());
+				});
+			});
+
+			var categoryNm = dropMenuList.eq(0).find('a>span').text();
+			searchHotProducts(categoryNm, '');
+		});
+
+		function getSelectedMonth() {
+			return $('#selectedMonth').text().replace('. ', '');
+		}
+
+		function searchHotProducts(categoryNm, rankingYm) {
+			// $.ajax({
+			// 	url: '/service/chart/search',
+			// 	dataType: 'json',
+			// 	data: { menu: '상품구색추천', categoryNm: categoryNm, rankingYm: rankingYm }
+			// })
+			// .done(function(data, status, xhr) {
+			// 	$('.bList tr:gt(0)').remove();
+			// 	// console.log("data:", data);
+			// 	var len = data.length;
+			// 	if (len > 0) {
+			// 		$('.chartTop .dropMenu p.title').text(categoryNm);
+			// 		$('#selectedMonth').text(data[0].rankingYm.substr(0,4) + '. ' + data[0].rankingYm.substr(4));
+			// 		$('#monthSelector').val(data[0].rankingYm);
+
+			// 		for (var i = 0; i < len; i++) {
+			// 			var tr  = '<tr>';
+			// 				tr += '<td class="rank">'+(i+1)+'</td>';
+			// 				tr += '<td class="barcode">'+data[i].barcode+'</td>';
+			// 				tr += '<td class="product">'+data[i].productNm+'</td>';
+			// 				tr += '<td class="manufacturer">'+data[i].productMaker+'</td>';
+			// 				tr += '<td class="sizeSgmt">'+data[i].sizeSgmt+'</td>';
+			// 				tr += '<td class="recommendPoint">'+data[i].recommendPoint+'</td>';
+			// 				tr += '</tr>';
+			// 			$('.bList').append(tr);
+			// 		}
+			// 	} else {
+			// 		var tr  = '<tr>';
+			// 			tr += '<td class="noResult" colspan="5">';
+			// 			tr += '<p>검색결과가 없습니다.</p>';
+			// 			tr += '</td>';
+			// 			tr += '</tr>';
+			// 		$('.bList').append(tr);
+			// 	}
+			// })
+			// .fail(function(xhr, status, error) {
+			// 	console.log('search failed.' + error);
+			// 	alert(error);
+			// });
+		}
+
+		function downloadExcel() {
+			var categoryNm = $('.chartTop .dropMenu p.title').text();
+			var rankingYm = getSelectedMonth();
+			location.href = '/service/chart/download?menu=상품구색추천&categoryNm=' + categoryNm + '&rankingYm=' + rankingYm;
+		}
+	</script>
+
+	<div id="wrap">
+		<div id="wrapIn">
+			<!-- header -->
+			<!-- header -->
+			<div id="header">
+				<h1><a href="#">유통데이터 서비스 플랫폼<span class="sub">Retail Data Service Platform</span></a></h1>
+				<!-- gnb -->
+				<div class="gnb">
+					<ul>
+						<li>
+							<a href="#"><span>사업소개</span></a>
+							<ul class="sub">
+								<li><a href="#">
+										<p>유통데이터 소개</p>
+									</a></li>
+								<li class="gnbDropMenu"><a href="#">
+										<p>참여기관별 실증사업</p>
+									</a>
+									<ul class="sub2">
+										<li><a href="#"><span>-&nbsp;상품데이터확대모델</span></a></li>
+										<li><a href="#"><span>-&nbsp;거래데이터분석모델</span></a></li>
+										<li><a href="#"><span>-&nbsp;유통데이터활용지원모델</span></a></li>
+										<li><a href="#"><span>-&nbsp;온라인수출지원모델</span></a></li>
+										<li><a href="#"><span>-&nbsp;중소유통지원모델</span></a></li>
+										<li><a href="#"><span>-&nbsp;외부실증사업참여기업·기관</span></a></li>
+										<li><a href="#"><span>-&nbsp;약어/감성정보/평판정보</span></a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#"><span>유통데이터 서비스</span></a>
+							<ul class="sub">
+								<li><a href="#">
+										<p>상품 정보 조회</p>
+									</a></li>
+								<li class="gnbDropMenu"><a href="#">
+										<p>인기상품 트렌드</p>
+									</a>
+									<ul class="sub3">
+										<li><a href="#"><span>-&nbsp;오프라인 인기상품 리스트</span></a></li>
+										<li><a href="#"><span>-&nbsp;온라인 인기상품 리스트</span></a></li>
+									</ul>
+								</li>
+								<li><a href="#">
+										<p>소비자 구매 트렌드</p>
+									</a></li>
+								<li><a href="#">
+										<p>자연어/약어/감성정보</p>
+									</a></li>
+								<li><a href="#">
+										<p>상품 구색추천</p>
+									</a></li>
+								<li><a href="#">
+										<p>중소매장 매출 분석정보</p>
+									</a></li>
+								<li><a href="#">
+										<p>유통데이터 거래 플랫폼</p>
+									</a></li>
+								<li><a href="#">
+										<p>유통데이터 법률지원 서비스</p>
+									</a></li>
+								<li><a href="#">
+										<p>교육/행사</p>
+									</a></li>
+								<li><a href="#">
+										<p>HS-Code조회</p>
+									</a></li>
+								<li><a href="#">
+										<p>온라인유통 등록항목 조회</p>
+									</a></li>
+							</ul>
+
+						</li>
+						<li>
+							<a href="#"><span>데이터활용</span></a>
+							<ul class="sub">
+								<li><a href="#">
+										<p>데이터 활용 요청</p>
+									</a></li>
+								<li><a href="#">
+										<p>샘플데이터 다운로드</p>
+									</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#"><span>소식</span></a>
+							<ul class="sub">
+								<li><a href="#">
+										<p>공지사항/자료실</p>
+									</a></li>
+								<li><a href="#">
+										<p>유통시장동향 레포트</p>
+									</a></li>
+								<li><a href="#">
+										<p>FAQ</p>
+									</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<!-- //gnb -->
+				<!-- member -->
+				<div class="topMember">
+					<ul>
+						<li class="login"><a href="#">Login</a></li>
+					</ul>
+				</div>
+				<!-- //member -->
+				<!-- menu -->
+				<a href="#" class="menu">Menu</a>
+				<!-- //menu -->
+			</div>
+
+			<!-- sitemap -->
+			<div id="sitemap">
+				<button class="close">닫기</button>
+				<ul>
+					<li>
+						<a href="#"><span>사업소개</span></a>
+						<ul class="sub">
+							<li><a href="#">
+									<p>유통데이터 소개</p>
+								</a></li>
+							<li class="gnbDropMenu"><a href="#">
+									<p>참여기관별 실증사업</p>
+								</a>
+								<ul class="sub2">
+									<li><a href="#"><span>-&nbsp;상품데이터확대모델</span></a></li>
+									<li><a href="#"><span>-&nbsp;거래데이터분석모델</span></a></li>
+									<li><a href="#"><span>-&nbsp;유통데이터활용지원모델</span></a></li>
+									<li><a href="#"><span>-&nbsp;온라인수출지원모델</span></a></li>
+									<li><a href="#"><span>-&nbsp;중소유통지원모델</span></a></li>
+									<li><a href="#"><span>-&nbsp;외부실증사업참여기업·기관</span></a></li>
+									<li><a href="#"><span>-&nbsp;약어/감성정보/평판정보</span></a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+
+					<li>
+						<a href="#"><span>유통데이터 서비스</span></a>
+						<ul class="sub">
+							<li><a href="#">
+									<p>상품 정보 조회</p>
+								</a></li>
+							<li class="gnbDropMenu"><a href="#">
+									<p>인기상품 트렌드</p>
+								</a>
+								<ul class="sub3">
+									<li><a href="#"><span>-&nbsp;오프라인 인기상품 리스트</span></a></li>
+									<li><a href="#"><span>-&nbsp;온라인 인기상품 리스트</span></a></li>
+								</ul>
+							</li>
+							<li><a href="#">
+									<p>소비자 구매 트렌드</p>
+								</a></li>
+							<li><a href="#">
+									<p>자연어/약어/감성정보</p>
+								</a></li>
+							<li><a href="#">
+									<p>상품 구색추천</p>
+								</a></li>
+							<li><a href="#">
+									<p>중소매장 매출 분석정보</p>
+								</a></li>
+							<li><a href="#">
+									<p>유통데이터 거래 플랫폼</p>
+								</a></li>
+							<li><a href="#">
+									<p>유통데이터 법률지원 서비스</p>
+								</a></li>
+							<li><a href="#">
+									<p>교육/행사</p>
+								</a></li>
+							<li><a href="#">
+									<p>HS-Code조회</p>
+								</a></li>
+							<li><a href="#">
+									<p>온라인유통 등록항목 조회</p>
+								</a></li>
+						</ul>
+
+					</li>
+					<li>
+						<a href="#"><span>데이터활용</span></a>
+						<ul class="sub">
+							<li><a href="#">
+									<p>데이터 활용 요청</p>
+								</a></li>
+							<li><a href="#">
+									<p>샘플데이터 다운로드</p>
+								</a></li>
+						</ul>
+					</li>
+					<!-- <li>
+      <a href="#"><span>소식</span></a>
+      <ul class="sub">
+        <li><a href="#"><p>공지사항/자료실</p></a></li>
+        <li><a href="#"><p>유통시장동향 레포트</p></a></li>
+        <li><a href="#"><p>FAQ</p></a></li>
+      </ul>
+    </li> -->
+					<li>
+						<a href="#"><span>소식</span></a>
+						<ul class="sub">
+							<li><a href="#">
+									<p>공지사항/자료실</p>
+								</a></li>
+							<li><a href="#">
+									<p>유통시장동향 레포트</p>
+								</a></li>
+							<li><a href="#">
+									<p>FAQ</p>
+								</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<!-- //sitemap -->
+			<!-- //header -->
+			<!-- //header -->
+			<!-- title -->
+			<div class="titleArea">
+				<h3>상품구색추천</h3>
+				<!-- location -->
+				<ul class="location">
+					<li class="home"><span>Home</span></li>
+					<li><span>서비스</span></li>
+					<li class="current"><span>상품구색추천</span></li>
+				</ul>
+				<!-- //location -->
+			</div>
+			<!-- //title -->
+			<!-- sub body -->
+			<div id="subBody">
+				<!-- body side -->
+				<div class="bodySide">
+					<h2><span>유통데이터 서비스</span></h2>
+					<ul class="sub">
+						<li><a href="#"><span>상품 정보 조회</span></a></li>
+						<li class="lnbDropMenu"><a href="#"><span>인기상품 트렌드</span></a>
+							<ul>
+								<li><a href="#">
+										<p>- 오프라인 인기상품 리스트</p>
+									</a></li>
+								<li><a href="#">
+										<p>- 온라인 인기상품 리스트</p>
+									</a></li>
+							</ul>
+						</li>
+						<li><a href="#"><span>소비자 구매 트렌드</span></a></li>
+						<li><a href="#"><span>자연어/약어/감성정보</span></a></li>
+						<li><a href="#"><span>상품 구색추천</span></a></li>
+						<li><a href="#"><span>중소매장 매출 분석정보</span></a></li>
+						<li><a href="#"><span>유통데이터 거래 플랫폼</span></a></li>
+						<li><a href="#"><span>유통데이터 법률지원 서비스</span></a></li>
+						<li><a href="#"><span>교육/행사</span></a></li>
+						<li><a href="#"><span>HS-Code조회</span></a></li>
+						<li><a href="#"><span>온라인유통 등록항목 조회</span></a></li>
+					</ul>
+				</div>
+				<!-- //body side -->
+				<!-- body content -->
+				<div class="bodyContent">
+					<!-- contents -->
+					<div id="contents" class="serviceChart">
+						<!-- top surmnary -->
+						<div class="topSummary lineBox">
+							<div class="boxBg">
+								<div class="indentCon">
+									<p class="icon"><img src="../images/common/icon_circle_popular_notice.png" alt="주요공지"></p>
+									<p class="topText">본 서비스는 유통상품 표준DB 를 활용하여 유통사 POS 데이터를 집계 분석한 결과로써, (주)마켓링크에서 제공하는
+										분석자료를 바탕으로 운영됩니다. <span>* 상품구색 : 매장에서 진열-판매하는 상품 종류를 의미 </span></p>
+									<ul class="dotList">
+										<li>상품정보 출처 : 대한상공회의소 유통상품 표준DB</li>
+										<li>POS 데이터 출처 : 국내 주요 대형마트, SSM</li>
+										<li>매출순위 : 카테고리 내 매출액 총합 기준 순위 </li>
+										<li>사이즈 세그먼트 : 상품의 ‘총중량’을 기준으로 [대] [중] [소] 사이즈로 구분 <span>* [대] 30% [중] 40% [소] 30% 비율로 구색 추천</span></li>
+									</ul>
+								</div>
+								<div class="">
+									<p class="img center"><img src="../images/service/img_sizeSgmt.png" alt="HS code"></p>
+								</div>
+								<div class="indentCon">
+									<ul class="dotList">
+										<li>구색추천 지수 : 단순 매출순위가 아닌, 소비자 니즈 만족을 위해 매장별로 반드시 진열-판매해야 하는 상품 여부를 수치로 제공</li>
+									</ul>
+								</div>
+								<div class="">
+									<p class="img center"><img src="../images/service/img_recommend.png" alt="HS code"></p>
+								</div>
+								<div class="consult">
+									<ul class="contactList">
+										<li class="head">월간 상품구색추천 관련 상세문의 : <span class="locale">(주)마켓링크 유통데이터 연구소</span></li>
+										<li class="email"><a href="mailto:sangwoo.kim@marketlink.co.kr">sangwoo.kim@marketlink.co.kr</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<!-- //top surmnary -->
+						<!-- top 100 -->
+						<div class="couUnit top100">
+							<h4>월간 상품구색추천</h4>
+							<!-- chart list -->
+							<div class="chartList">
+								<!-- top -->
+								<div class="chartTop">
+									<div class="dropMenu">
+										<p class="title"><span>상품분류 선택</span></p>
+										<ul>
+											<li><a href="#"><span>라면</span></a></li>
+											<li><a href="#"><span>맥주</span></a></li>
+											<li><a href="#"><span>생수</span></a></li>
+											<li><a href="#"><span>요구르트</span></a></li>
+											<li><a href="#"><span>우유</span></a></li>
+											<li><a href="#"><span>커피</span></a></li>
+										</ul>
+									</div>
+									<div class="selectMonth">
+										<p class="month"><span id="selectedMonth" th:remove="body">2021. 09</span><input id="monthSelector" type="text" style="width:0;height:0;border:0;" /></p>
+									</div>
+									<div class="button">
+										<button class="btnBox orange" onclick="downloadExcel();"><i><img src="../images/common/icon_download.png" alt="다운로드"></i>엑셀 내려받기</button>
+									</div>
+								</div>
+								<!-- //top -->
+
+								<table class="bList">
+									<tr>
+										<th class="rank">순위</th>
+										<th class="barcode">바코드</th>
+										<th class="product">상품명</th>
+										<th class="manufacturer">제조사</th>
+										<th class="sizeSgmt">사이즈세그먼트</th>
+										<th class="recommendPoint">구색추천지수</th>
+									</tr>
+									<tr>
+										<td class="rank">1</td>
+										<td class="barcode">8801128503051</td>
+										<td class="product">팔도비빔면130G*5입</td>
+										<td class="manufacturer">팔도</td>
+										<td class="sizeSgmt">대</td>
+										<td class="recommendPoint"><span class="up">4</span></td>
+									</tr>
+									<tr>
+										<td class="rank">2</td>
+										<td class="barcode">8801128503594</td>
+										<td class="product">팔도비빔면컵115G</td>
+										<td class="manufacturer">팔도</td>
+										<td class="sizeSgmt">대</td>
+										<td class="recommendPoint">-</td>
+									</tr>
+									<tr>
+										<td class="rank">3</td>
+										<td class="barcode">8801128503051</td>
+										<td class="product">팔도비빔면130G*5입</td>
+										<td class="manufacturer">팔도</td>
+										<td class="sizeSgmt">대</td>
+										<td class="recommendPoint"><span class="down">2</span></td>
+									</tr>
+									<tr>
+										<td class="rank">4</td>
+										<td class="barcode">8801128503594</td>
+										<td class="product">팔도비빔면컵115G</td>
+										<td class="manufacturer">팔도</td>
+										<td class="sizeSgmt">대</td>
+										<td class="recommendPoint"><span class="up">3</span></td>
+									</tr>
+									<tr>
+										<td class="rank">5</td>
+										<td class="barcode">8801128503051</td>
+										<td class="product">팔도비빔면130G*5입</td>
+										<td class="manufacturer">팔도</td>
+										<td class="sizeSgmt">대</td>
+										<td class="recommendPoint"><span class="up">14</span></td>
+									</tr>
+									<tr>
+										<td class="rank">6</td>
+										<td class="barcode">8801128503594</td>
+										<td class="product">팔도비빔면컵115G</td>
+										<td class="manufacturer">팔도</td>
+										<td class="sizeSgmt">대</td>
+										<td class="recommendPoint"><span class="down">12</span></td>
+									</tr>
+									<tr>
+										<td class="rank">7</td>
+										<td class="barcode">8801128503051</td>
+										<td class="product">팔도비빔면130G*5입</td>
+										<td class="manufacturer">팔도</td>
+										<td class="sizeSgmt">대</td>
+										<td class="recommendPoint">-</td>
+									</tr>
+									<tr>
+										<td class="rank">8</td>
+										<td class="barcode">8801128503594</td>
+										<td class="product">팔도비빔면컵115G</td>
+										<td class="manufacturer">팔도</td>
+										<td class="sizeSgmt">대</td>
+										<td class="recommendPoint">-</td>
+									</tr>
+									<tr>
+										<td class="rank">9</td>
+										<td class="barcode">8801128503051</td>
+										<td class="product">팔도비빔면130G*5입</td>
+										<td class="manufacturer">팔도</td>
+										<td class="sizeSgmt">대</td>
+										<td class="recommendPoint"><span class="down">22</span></td>
+									</tr>
+									<tr>
+										<td class="rank">10</td>
+										<td class="barcode">8801128503594</td>
+										<td class="product">팔도비빔면컵115G</td>
+										<td class="manufacturer">팔도</td>
+										<td class="sizeSgmt">대</td>
+										<td class="recommendPoint"><span class="up">24</span></td>
+									</tr>
+								</table>
+							</div>
+							<!-- //chart list -->
+						</div>
+						<!-- //top 100 -->
+					</div>
+					<!-- //contents -->
+				</div>
+				<!-- //body content -->
+			</div>
+			<!-- //sub body -->
+			<!-- footer -->
+			<!-- footer -->
+			<div id="footer">
+				<div class="footerIn">
+					<h1>
+						<span class="industry">산업통상자원부</span>
+						<span class="korea">대한상공회의소</span>
+					</h1>
+					<!-- content -->
+					<div class="content">
+						<div class="info">
+							<span class="address">서울시 중구 세종대로 39 상공회의소회관 17층 대한상공회의소 유통물류진흥원(GS1 KOREA) KCCI B/D, 39, SEJONGDAERO, JUNG-GU, SEOUL, KOREA.</span>
+							<span class="copyright">COPYRIGHT(C) 2021 KCCI. GS1 KOREA. ALL RIGHTS RESERVED.</span>
+							<span class="policy">
+								<a href="/privacy" class="personal">개인정보 처리 방침</a>
+							</span>
+						</div>
+						<div class="contact">
+							<p class="head">[콘텐츠 | 사업제휴 문의]</p>
+							<ul>
+
+
+								<li class="mail">
+									<p class="title">E-MAIL</p>
+									<a href="mailto:notnull@korcham.net">notnull@korcham.net</a>
+								</li>
+							</ul>
+						</div>
+						<p class="notice">유통데이터 서비스 플랫폼의 모든 콘텐츠는 저작권법의 보호를 받은바, 무단 전재, 복사, 배포 등을 금합니다.</p>
+					</div>
+					<!-- //content -->
+					<!-- side -->
+					<div class="side">
+						<!-- family site -->
+						<div class="familysite">
+							<div class="dropMenu up">
+								<p class="title"><span>Family Site</span></p>
+								<ul>
+									<li><a href="http://www.motie.go.kr/www/main.do" target="_blank"><span>산업통상자원부</span></a></li>
+									<li><a href="http://www.korcham.net/nCham/Service/Main/appl/Main.asp" target="_blank"><span>대한상공회의소</span></a></li>
+									<li><a href="http://www.gs1kr.org/Service/Main/appl/Main.asp" target="_blank"><span>유통물류진흥원</span></a></li>
+								</ul>
+							</div>
+						</div>
+						<!-- //family site -->
+						<!-- sns -->
+						<div class="sns">
+							<ul>
+								<li class="tradeTV"><a href="https://www.youtube.com/c/%EC%9C%A0%ED%86%B5TV" target="_blank">대한상공회의소 유통 TV</a></li>
+
+
+							</ul>
+						</div>
+						<!-- //sns -->
+					</div>
+					<!-- //side -->
+				</div>
+			</div>
+			<!-- //footer -->
+			<!-- //footer -->
+		</div>
+	</div>
+	<!-- top -->
+	<button class="goTop">Top</button>
+	<!-- //top -->
+</body>
+
+</html>

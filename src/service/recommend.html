@@ -1,0 +1,306 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	@@include('../include/head.html')
+	<link rel="stylesheet" type="text/css" href="/css/jquery-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="/css/MonthPicker.css" />
+	<script src="/js/jquery-ui.min.js"></script>
+	<script src="/js/MonthPicker.js"></script>
+	<style>
+		.topText span, .dotList span {color:#f16333; font-weight: initial; font-size: small; margin-left: 10px}
+		.sizeSgmt, .recommendPoint {text-align: center}
+	</style>
+</head>
+<body>
+
+<script type="text/javascript">
+	var thisLocation = [2,5,0,0];
+
+	$(function() {
+		$("#monthSelector").MonthPicker({
+			Button: '<img src="/images/common/icon_date_more.png" title="선택" style="margin-top:-5px;cursor: pointer;"/>',
+			MonthFormat: "yymm",
+			i18n: {
+				year: '',
+				buttonText: '',
+				prevYear: '',
+				nextYear: '',
+				next12Years: '',
+				prev12Years: '',
+				nextLabel: '',
+				prevLabel: '',
+				jumpYears: '',
+				backTo: '',
+				months: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월']
+			},
+			OnAfterChooseMonth: function(selectedDate){
+				var month = selectedDate.getMonth() + 1;
+				month = (month < 10) ? '0' + month : month;
+				$('#selectedMonth').text(selectedDate.getFullYear() + '. ' + month);
+
+				searchHotProducts($('.chartTop .dropMenu p.title').text(), getSelectedMonth());
+			}
+		});
+
+		var dropMenuTitle = $('.chartTop .dropMenu p.title');
+		var dropMenuList = $('.chartTop .dropMenu > ul > li');
+		dropMenuList.each(function() {
+			$(this).children('a').click(function(e) {
+				e.preventDefault();
+				var txt = $(this).find('span').text()
+				dropMenuTitle.text(txt);
+
+				searchHotProducts(txt, getSelectedMonth());
+			});
+		});
+
+		var categoryNm = dropMenuList.eq(0).find('a>span').text();
+		searchHotProducts(categoryNm, '');
+	});
+	function getSelectedMonth() {
+		return $('#selectedMonth').text().replace('. ', '');
+	}
+	function searchHotProducts(categoryNm, rankingYm) {
+		// $.ajax({
+		// 	url: '/service/chart/search',
+		// 	dataType: 'json',
+		// 	data: { menu: '상품구색추천', categoryNm: categoryNm, rankingYm: rankingYm }
+		// })
+		// .done(function(data, status, xhr) {
+		// 	$('.bList tr:gt(0)').remove();
+		// 	// console.log("data:", data);
+		// 	var len = data.length;
+		// 	if (len > 0) {
+		// 		$('.chartTop .dropMenu p.title').text(categoryNm);
+		// 		$('#selectedMonth').text(data[0].rankingYm.substr(0,4) + '. ' + data[0].rankingYm.substr(4));
+		// 		$('#monthSelector').val(data[0].rankingYm);
+
+		// 		for (var i = 0; i < len; i++) {
+		// 			var tr  = '<tr>';
+		// 				tr += '<td class="rank">'+(i+1)+'</td>';
+		// 				tr += '<td class="barcode">'+data[i].barcode+'</td>';
+		// 				tr += '<td class="product">'+data[i].productNm+'</td>';
+		// 				tr += '<td class="manufacturer">'+data[i].productMaker+'</td>';
+		// 				tr += '<td class="sizeSgmt">'+data[i].sizeSgmt+'</td>';
+		// 				tr += '<td class="recommendPoint">'+data[i].recommendPoint+'</td>';
+		// 				tr += '</tr>';
+		// 			$('.bList').append(tr);
+		// 		}
+		// 	} else {
+		// 		var tr  = '<tr>';
+		// 			tr += '<td class="noResult" colspan="5">';
+		// 			tr += '<p>검색결과가 없습니다.</p>';
+		// 			tr += '</td>';
+		// 			tr += '</tr>';
+		// 		$('.bList').append(tr);
+		// 	}
+		// })
+		// .fail(function(xhr, status, error) {
+		// 	console.log('search failed.' + error);
+		// 	alert(error);
+		// });
+	}
+	function downloadExcel() {
+		var categoryNm = $('.chartTop .dropMenu p.title').text();
+		var rankingYm = getSelectedMonth();
+		location.href='/service/chart/download?menu=상품구색추천&categoryNm='+categoryNm+'&rankingYm='+rankingYm;
+	}
+</script>
+
+<div id="wrap">
+	<div id="wrapIn">
+		<!-- header -->
+		@@include('../include/header.html')
+		<!-- //header -->
+		<!-- title -->
+		<div class="titleArea">
+			<h3>상품구색추천</h3>
+			<!-- location -->
+			<ul class="location">
+				<li class="home"><span>Home</span></li>
+				<li><span>서비스</span></li>
+				<li class="current"><span>상품구색추천</span></li>
+			</ul>
+			<!-- //location -->
+		</div>
+		<!-- //title -->
+		<!-- sub body -->
+		<div id="subBody">
+			<!-- body side -->
+			@@include('../include/side_service.html')
+			<!-- //body side -->
+			<!-- body content -->
+			<div class="bodyContent">
+				<!-- contents -->
+				<div id="contents" class="serviceChart">
+					<!-- top surmnary -->
+					<div class="topSummary lineBox">
+						<div class="boxBg">
+							<div class="indentCon">
+								<p class="icon"><img src="../images/common/icon_circle_popular_notice.png" alt="주요공지"></p>
+								<p class="topText">본 서비스는 유통상품 표준DB 를 활용하여 유통사 POS 데이터를 집계 분석한 결과로써, (주)마켓링크에서 제공하는
+									분석자료를 바탕으로 운영됩니다. <span>* 상품구색 : 매장에서 진열-판매하는 상품 종류를 의미 </span></p>
+								<ul class="dotList">
+									<li>상품정보 출처 : 대한상공회의소 유통상품 표준DB</li>
+									<li>POS 데이터 출처 : 국내 주요 대형마트, SSM</li>
+									<li>매출순위 : 카테고리 내 매출액 총합 기준 순위 </li>
+									<li>사이즈 세그먼트 : 상품의 ‘총중량’을 기준으로 [대] [중] [소] 사이즈로 구분 <span>* [대] 30%  [중] 40%  [소] 30% 비율로 구색 추천</span></li>
+								</ul>
+							</div>
+								<div class="">
+									<p class="img center"><img src="../images/service/img_sizeSgmt.png" alt="HS code"></p>
+								</div>
+							<div class="indentCon">
+								<ul class="dotList">
+									<li>구색추천 지수 : 단순 매출순위가 아닌, 소비자 니즈 만족을 위해 매장별로 반드시 진열-판매해야 하는 상품 여부를 수치로 제공</li>
+								</ul>
+							</div>
+							<div class="">
+								<p class="img center"><img src="../images/service/img_recommend.png" alt="HS code"></p>
+							</div>
+							<div class="consult">
+								<ul class="contactList">
+									<li class="head">월간 상품구색추천 관련 상세문의 : <span class="locale">(주)마켓링크 유통데이터 연구소</span></li>
+									<li class="email"><a href="mailto:sangwoo.kim@marketlink.co.kr">sangwoo.kim@marketlink.co.kr</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- //top surmnary -->
+					<!-- top 100 -->
+					<div class="couUnit top100">
+						<h4>월간 상품구색추천</h4>
+						<!-- chart list -->
+						<div class="chartList">
+							<!-- top -->
+							<div class="chartTop">
+								<div class="dropMenu">
+									<p class="title"><span>상품분류 선택</span></p>
+									<ul>
+										<li><a href="#"><span>라면</span></a></li>
+										<li><a href="#"><span>맥주</span></a></li>
+										<li><a href="#"><span>생수</span></a></li>
+										<li><a href="#"><span>요구르트</span></a></li>
+										<li><a href="#"><span>우유</span></a></li>
+										<li><a href="#"><span>커피</span></a></li>
+									</ul>
+								</div>
+								<div class="selectMonth">
+									<p class="month"><span id="selectedMonth" th:remove="body">2021. 09</span><input id="monthSelector" type="text" style="width:0;height:0;border:0;" /></p>
+								</div>
+								<div class="button">
+									<button class="btnBox orange" onclick="downloadExcel();"><i><img src="../images/common/icon_download.png" alt="다운로드"></i>엑셀 내려받기</button>
+								</div>
+							</div>
+							<!-- //top -->
+
+							<table class="bList">
+								<tr>
+									<th class="rank">순위</th>
+									<th class="barcode">바코드</th>
+									<th class="product">상품명</th>
+									<th class="manufacturer">제조사</th>
+									<th class="sizeSgmt">사이즈세그먼트</th>
+									<th class="recommendPoint">구색추천지수</th>
+								</tr>
+								<tr>
+									<td class="rank">1</td>
+									<td class="barcode">8801128503051</td>
+									<td class="product">팔도비빔면130G*5입</td>
+									<td class="manufacturer">팔도</td>
+									<td class="sizeSgmt">대</td>
+									<td class="recommendPoint"><span class="up">4</span></td>
+								</tr>
+								<tr>
+									<td class="rank">2</td>
+									<td class="barcode">8801128503594</td>
+									<td class="product">팔도비빔면컵115G</td>
+									<td class="manufacturer">팔도</td>
+									<td class="sizeSgmt">대</td>
+									<td class="recommendPoint">-</td>
+								</tr>
+								<tr>
+									<td class="rank">3</td>
+									<td class="barcode">8801128503051</td>
+									<td class="product">팔도비빔면130G*5입</td>
+									<td class="manufacturer">팔도</td>
+									<td class="sizeSgmt">대</td>
+									<td class="recommendPoint"><span class="down">2</span></td>
+								</tr>
+								<tr>
+									<td class="rank">4</td>
+									<td class="barcode">8801128503594</td>
+									<td class="product">팔도비빔면컵115G</td>
+									<td class="manufacturer">팔도</td>
+									<td class="sizeSgmt">대</td>
+									<td class="recommendPoint"><span class="up">3</span></td>
+								</tr>
+								<tr>
+									<td class="rank">5</td>
+									<td class="barcode">8801128503051</td>
+									<td class="product">팔도비빔면130G*5입</td>
+									<td class="manufacturer">팔도</td>
+									<td class="sizeSgmt">대</td>
+									<td class="recommendPoint"><span class="up">14</span></td>
+								</tr>
+								<tr>
+									<td class="rank">6</td>
+									<td class="barcode">8801128503594</td>
+									<td class="product">팔도비빔면컵115G</td>
+									<td class="manufacturer">팔도</td>
+									<td class="sizeSgmt">대</td>
+									<td class="recommendPoint"><span class="down">12</span></td>
+								</tr>
+								<tr>
+									<td class="rank">7</td>
+									<td class="barcode">8801128503051</td>
+									<td class="product">팔도비빔면130G*5입</td>
+									<td class="manufacturer">팔도</td>
+									<td class="sizeSgmt">대</td>
+									<td class="recommendPoint">-</td>
+								</tr>
+								<tr>
+									<td class="rank">8</td>
+									<td class="barcode">8801128503594</td>
+									<td class="product">팔도비빔면컵115G</td>
+									<td class="manufacturer">팔도</td>
+									<td class="sizeSgmt">대</td>
+									<td class="recommendPoint">-</td>
+								</tr>
+								<tr>
+									<td class="rank">9</td>
+									<td class="barcode">8801128503051</td>
+									<td class="product">팔도비빔면130G*5입</td>
+									<td class="manufacturer">팔도</td>
+									<td class="sizeSgmt">대</td>
+									<td class="recommendPoint"><span class="down">22</span></td>
+								</tr>
+								<tr>
+									<td class="rank">10</td>
+									<td class="barcode">8801128503594</td>
+									<td class="product">팔도비빔면컵115G</td>
+									<td class="manufacturer">팔도</td>
+									<td class="sizeSgmt">대</td>
+									<td class="recommendPoint"><span class="up">24</span></td>
+								</tr>
+							</table>
+						</div>
+						<!-- //chart list -->
+					</div>
+					<!-- //top 100 -->
+				</div>	
+				<!-- //contents -->
+			</div>
+			<!-- //body content -->
+		</div>
+		<!-- //sub body -->
+		<!-- footer -->
+		@@include('../include/footer.html')
+		<!-- //footer -->
+	</div>
+</div>
+<!-- top -->
+<button class="goTop">Top</button>
+<!-- //top -->
+</body>
+</html>

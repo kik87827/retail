@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+@@include('../include/head.html')
+</head>
+<body>
+	<script type="text/javascript">
+		var thisLocation = [2,6,0,0];
+	</script>
+	<div id="wrap">
+		<div id="wrapIn">
+			<!-- header -->
+			@@include('../include/header.html')
+			<!-- //header -->
+			<!-- title -->
+			<div class="titleArea">
+				<h3>중소매장 매출 분석정보</h3>
+				<!-- location -->
+				<ul class="location">
+					<li class="home"><span>Home</span></li>
+					<li><span>유통데이터 서비스</span></li>
+					<li class="current"><span>중소매장 매출 분석정보</span></li>
+				</ul>
+				<!-- //location -->
+			</div>
+			<!-- //title -->
+			<!-- sub body -->
+			<div id="subBody">
+				<!-- body side -->
+				@@include('../include/side_service.html')
+				<!-- //body side -->
+				<!-- body content -->
+				<div class="bodyContent">
+					<!-- contents -->
+					<div id="contents" class="serviceAttribute">
+						내용
+					</div>
+					<!-- //contents -->
+				</div>
+				<!-- //body content -->
+			</div>
+			<!-- //sub body -->
+			<!-- footer -->
+			@@include('../include/footer.html')
+			<!-- //footer -->
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,618 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="author" content="jlab">
+	<meta name="keywords" content="키워드">
+
+	<!-- HTML Meta Tags -->
+	<title>유통데이터 서비스 플랫폼</title>
+	<meta name="description" content="대한상공회의소의 유통데이터 활용 및 분석 서비스 제공">
+
+	<!-- Facebook Meta Tags -->
+	<meta property="og:url" content="https://retaildb.or.kr/">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="유통데이터 서비스 플랫폼">
+	<meta property="og:description" content="대한상공회의소의 유통데이터 활용 및 분석 서비스 제공">
+	<meta property="og:image" content="https://retaildb.or.kr/images/common/img-og.png">
+
+	<!-- Twitter Meta Tags -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta property="twitter:domain" content="retaildb.or.kr">
+	<meta property="twitter:url" content="https://retaildb.or.kr/">
+	<meta name="twitter:title" content="유통데이터 서비스 플랫폼">
+	<meta name="twitter:description" content="대한상공회의소의 유통데이터 활용 및 분석 서비스 제공">
+	<meta name="twitter:image" content="https://retaildb.or.kr/images/common/img-og.png">
+	<!-- Meta Tags Generated via https://www.opengraph.xyz -->
+
+	<meta http-equiv="imagetoolbar" content="no">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<title>유통데이터서비스</title>
+
+	<link rel="shortcut icon" href="/images/common/favicon.ico">
+
+	<link rel="stylesheet" type="text/css" href="/css/common.css">
+	<link rel="stylesheet" type="text/css" href="/css/custom.css">
+	<script src="/js/jquery-1.8.3.min.js"></script>
+	<script src="/js/jquery.flexslider-min.js"></script>
+	<script src="/js/style.js"></script>
+	<script src="/js/util.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+	<style>
+		#header .topMember ul li.login a {
+			background: url('/images/common/member_btn_login.png') center center no-repeat;
+		}
+	</style>
+	<!--<style>
+.rankList .goods {
+	width: 150px;
+}
+.text-ellipsis {
+	display: table;
+	table-layout: fixed;
+	white-space: nowrap;
+	width: 100%;
+}
+.text-ellipsis > * {
+	display: table-cell;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+</style>-->
+	<style>
+		.rankList .goods {
+			width: 150px;
+		}
+
+		.text-ellipsis {
+			display: table;
+			table-layout: fixed;
+			white-space: nowrap;
+			width: 100%;
+		}
+
+		.text-ellipsis>* {
+			display: table-cell;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="wrap">
+		<div id="wrapIn">
+			<!-- header -->
+			<!-- header -->
+			<div id="header">
+				<h1><a href="#">유통데이터 서비스 플랫폼<span class="sub">Retail Data Service Platform</span></a></h1>
+				<!-- gnb -->
+				<div class="gnb">
+					<ul>
+						<li>
+							<a href="#"><span>사업소개</span></a>
+							<ul class="sub">
+								<li><a href="#">
+										<p>유통데이터 소개</p>
+									</a></li>
+								<li class="gnbDropMenu"><a href="#">
+										<p>참여기관별 실증사업</p>
+									</a>
+									<ul class="sub2">
+										<li><a href="#"><span>-&nbsp;상품데이터확대모델</span></a></li>
+										<li><a href="#"><span>-&nbsp;거래데이터분석모델</span></a></li>
+										<li><a href="#"><span>-&nbsp;유통데이터활용지원모델</span></a></li>
+										<li><a href="#"><span>-&nbsp;온라인수출지원모델</span></a></li>
+										<li><a href="#"><span>-&nbsp;중소유통지원모델</span></a></li>
+										<li><a href="#"><span>-&nbsp;외부실증사업참여기업·기관</span></a></li>
+										<li><a href="#"><span>-&nbsp;약어/감성정보/평판정보</span></a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#"><span>유통데이터 서비스</span></a>
+							<ul class="sub">
+								<li><a href="#">
+										<p>상품 정보 조회</p>
+									</a></li>
+								<li class="gnbDropMenu"><a href="#">
+										<p>인기상품 트렌드</p>
+									</a>
+									<ul class="sub3">
+										<li><a href="#"><span>-&nbsp;오프라인 인기상품 리스트</span></a></li>
+										<li><a href="#"><span>-&nbsp;온라인 인기상품 리스트</span></a></li>
+									</ul>
+								</li>
+								<li><a href="#">
+										<p>소비자 구매 트렌드</p>
+									</a></li>
+								<li><a href="#">
+										<p>자연어/약어/감성정보</p>
+									</a></li>
+								<li><a href="#">
+										<p>상품 구색추천</p>
+									</a></li>
+								<li><a href="#">
+										<p>중소매장 매출 분석정보</p>
+									</a></li>
+								<li><a href="#">
+										<p>유통데이터 거래 플랫폼</p>
+									</a></li>
+								<li><a href="#">
+										<p>유통데이터 법률지원 서비스</p>
+									</a></li>
+								<li><a href="#">
+										<p>교육/행사</p>
+									</a></li>
+								<li><a href="#">
+										<p>HS-Code조회</p>
+									</a></li>
+								<li><a href="#">
+										<p>온라인유통 등록항목 조회</p>
+									</a></li>
+							</ul>
+
+						</li>
+						<li>
+							<a href="#"><span>데이터활용</span></a>
+							<ul class="sub">
+								<li><a href="#">
+										<p>데이터 활용 요청</p>
+									</a></li>
+								<li><a href="#">
+										<p>샘플데이터 다운로드</p>
+									</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#"><span>소식</span></a>
+							<ul class="sub">
+								<li><a href="#">
+										<p>공지사항/자료실</p>
+									</a></li>
+								<li><a href="#">
+										<p>유통시장동향 레포트</p>
+									</a></li>
+								<li><a href="#">
+										<p>FAQ</p>
+									</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<!-- //gnb -->
+				<!-- member -->
+				<div class="topMember">
+					<ul>
+						<li class="login"><a href="#">Login</a></li>
+					</ul>
+				</div>
+				<!-- //member -->
+				<!-- menu -->
+				<a href="#" class="menu">Menu</a>
+				<!-- //menu -->
+			</div>
+
+			<!-- sitemap -->
+			<div id="sitemap">
+				<button class="close">닫기</button>
+				<ul>
+					<li>
+						<a href="#"><span>사업소개</span></a>
+						<ul class="sub">
+							<li><a href="#">
+									<p>유통데이터 소개</p>
+								</a></li>
+							<li class="gnbDropMenu"><a href="#">
+									<p>참여기관별 실증사업</p>
+								</a>
+								<ul class="sub2">
+									<li><a href="#"><span>-&nbsp;상품데이터확대모델</span></a></li>
+									<li><a href="#"><span>-&nbsp;거래데이터분석모델</span></a></li>
+									<li><a href="#"><span>-&nbsp;유통데이터활용지원모델</span></a></li>
+									<li><a href="#"><span>-&nbsp;온라인수출지원모델</span></a></li>
+									<li><a href="#"><span>-&nbsp;중소유통지원모델</span></a></li>
+									<li><a href="#"><span>-&nbsp;외부실증사업참여기업·기관</span></a></li>
+									<li><a href="#"><span>-&nbsp;약어/감성정보/평판정보</span></a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+
+					<li>
+						<a href="#"><span>유통데이터 서비스</span></a>
+						<ul class="sub">
+							<li><a href="#">
+									<p>상품 정보 조회</p>
+								</a></li>
+							<li class="gnbDropMenu"><a href="#">
+									<p>인기상품 트렌드</p>
+								</a>
+								<ul class="sub3">
+									<li><a href="#"><span>-&nbsp;오프라인 인기상품 리스트</span></a></li>
+									<li><a href="#"><span>-&nbsp;온라인 인기상품 리스트</span></a></li>
+								</ul>
+							</li>
+							<li><a href="#">
+									<p>소비자 구매 트렌드</p>
+								</a></li>
+							<li><a href="#">
+									<p>자연어/약어/감성정보</p>
+								</a></li>
+							<li><a href="#">
+									<p>상품 구색추천</p>
+								</a></li>
+							<li><a href="#">
+									<p>중소매장 매출 분석정보</p>
+								</a></li>
+							<li><a href="#">
+									<p>유통데이터 거래 플랫폼</p>
+								</a></li>
+							<li><a href="#">
+									<p>유통데이터 법률지원 서비스</p>
+								</a></li>
+							<li><a href="#">
+									<p>교육/행사</p>
+								</a></li>
+							<li><a href="#">
+									<p>HS-Code조회</p>
+								</a></li>
+							<li><a href="#">
+									<p>온라인유통 등록항목 조회</p>
+								</a></li>
+						</ul>
+
+					</li>
+					<li>
+						<a href="#"><span>데이터활용</span></a>
+						<ul class="sub">
+							<li><a href="#">
+									<p>데이터 활용 요청</p>
+								</a></li>
+							<li><a href="#">
+									<p>샘플데이터 다운로드</p>
+								</a></li>
+						</ul>
+					</li>
+					<!-- <li>
+      <a href="#"><span>소식</span></a>
+      <ul class="sub">
+        <li><a href="#"><p>공지사항/자료실</p></a></li>
+        <li><a href="#"><p>유통시장동향 레포트</p></a></li>
+        <li><a href="#"><p>FAQ</p></a></li>
+      </ul>
+    </li> -->
+					<li>
+						<a href="#"><span>소식</span></a>
+						<ul class="sub">
+							<li><a href="#">
+									<p>공지사항/자료실</p>
+								</a></li>
+							<li><a href="#">
+									<p>유통시장동향 레포트</p>
+								</a></li>
+							<li><a href="#">
+									<p>FAQ</p>
+								</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<!-- //sitemap -->
+			<!-- //header -->
+			<!-- //header -->
+
+			<!-- main body -->
+			<div id="mainBody">
+
+				<!-- left content -->
+				<div class="mainLeft">
+
+					<!-- popular -->
+					<div class="mainPopular">
+						<h3>월간 인기상품 TOP 100</h3>
+						<a href="/service/chart" class="btnMore">더보기</a>
+						<div class="popularBox">
+							<p class="date" th:text="${#temporals.format(rankingYm, 'yyyy.MM')}">2021.09</p>
+							<!-- top 100 -->
+							<div class="popularList">
+								<ul class="slides">
+									<li th:each="entry : ${hotProducts}">
+										<p class="title" th:text="${entry.key}">생수</p>
+										<table class="rankList">
+											<tr class="gold">
+												<td class="rank" th:text="${entry.value[0].ranking}">1</td>
+												<td class="change" th:if="${entry.value[0].rankingVariation > 0}"><span class="up" th:text="${'↑'+entry.value[0].rankingVariation}">↑4</span></td>
+												<td class="change" th:if="${entry.value[0].rankingVariation < 0}"><span class="down" th:text="${'↓'+(entry.value[0].rankingVariation*-1)}">↓2</span></td>
+												<td class="change" th:if="${entry.value[0].rankingVariation == 0}">-</td>
+												<td class="goods"><div class="text-ellipsis"><span th:text="${entry.value[0].productNm}">제주 삼다수 2L</span></div></td>
+												<td class="manufacturer"><div class="text-ellipsis"><span th:text="${entry.value[0].productMaker}">광동제약</span></div></td>
+											</tr>
+											<tr class="silver">
+												<td class="rank" th:text="${entry.value[1].ranking}">2</td>
+												<td class="change" th:if="${entry.value[1].rankingVariation > 0}"><span class="up" th:text="${'↑'+entry.value[1].rankingVariation}">↑4</span></td>
+												<td class="change" th:if="${entry.value[1].rankingVariation < 0}"><span class="down" th:text="${'↓'+(entry.value[1].rankingVariation*-1)}">↓2</span></td>
+												<td class="change" th:if="${entry.value[1].rankingVariation == 0}">-</td>
+												<td class="goods"><div class="text-ellipsis"><span th:text="${entry.value[1].productNm}">제주 삼다수 2L*6</span></div></td>
+												<td class="manufacturer"><div class="text-ellipsis"><span th:text="${entry.value[1].productMaker}">광동제약</span></div></td>
+											</tr>
+											<tr class="bronze">
+												<td class="rank" th:text="${entry.value[2].ranking}">3</td>
+												<td class="change" th:if="${entry.value[2].rankingVariation > 0}"><span class="up" th:text="${'↑'+entry.value[2].rankingVariation}">↑4</span></td>
+												<td class="change" th:if="${entry.value[2].rankingVariation < 0}"><span class="down" th:text="${'↓'+(entry.value[2].rankingVariation*-1)}">↓2</span></td>
+												<td class="change" th:if="${entry.value[2].rankingVariation == 0}">-</td>
+												<td class="goods"><div class="text-ellipsis"><span th:text="${entry.value[2].productNm}">제주 삼다수 500...</span></div></td>
+												<td class="manufacturer"><div class="text-ellipsis"><span th:text="${entry.value[2].productMaker}">광동제약</span></div></td>
+											</tr>
+											<tr th:each="hotProduct,iter : ${entry.value}" th:if="${iter.index > 2}">
+												<td class="rank" th:text="${hotProduct.ranking}">4</td>
+												<td class="change" th:if="${hotProduct.rankingVariation > 0}"><span class="up" th:text="${'↑'+hotProduct.rankingVariation}">↑4</span></td>
+												<td class="change" th:if="${hotProduct.rankingVariation < 0}"><span class="down" th:text="${'↓'+(hotProduct.rankingVariation*-1)}">↓2</span></td>
+												<td class="change" th:if="${hotProduct.rankingVariation == 0}">-</td>
+												<td class="goods"><div class="text-ellipsis"><span th:text="${hotProduct.productNm}">제주 삼다수 500...</span></div></td>
+												<td class="manufacturer"><div class="text-ellipsis"><span th:text="${hotProduct.productMaker}">광동제약</span></div></td>
+											</tr>
+										</table>
+									</li>
+								</ul>
+							</div>
+							<script type="text/javascript">
+								$(window).load(function() {
+									$('.popularList').flexslider({
+										animation: "slide",
+										slideshow: false,
+										slideshowSpeed: 3000,
+										animationSpeed: 800,
+										directionNav: true,
+										controlNav: false,
+										pausePlay: false,
+										after: function(slider) {
+											/* auto-restart player if paused after action */
+											/*if (!slider.playing) {
+												slider.play();
+											}*/
+										}
+									});
+								});
+							</script>
+							<!-- //top 100 -->
+						</div>
+					</div>
+					<!-- //popular -->
+
+					<!-- link -->
+					<div class="mainLink">
+						<ul>
+							<li>
+								<a href="/service/hs_code">
+									<p class="icon"><img src="../images/main/icon_main_hs.png" alt="HS-Code 조회"></p>
+									<p class="title">HS-Code <br>
+									조회</p>
+								</a>
+							</li>
+							<li>
+								<a href="/service/product_online">
+									<p class="icon"><img src="../images/main/icon_main_online.png" alt="온라인유통 상품정보"></p>
+									<p class="title">온라인유통 <br>
+									상품정보</p>
+								</a>
+							</li>
+							<li>
+								<a href="/service/attribute">
+									<p class="icon"><img src="../images/main/icon_main_product.png" alt="상품 부가속성 (자연어/평판정보)"></p>
+									<p class="title">상품 확대속성 <br>
+									<span>(자연어/평판정보)</span></p>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<!-- //link -->
+
+				</div>
+				<!-- //left content -->
+
+				<!-- mid content -->
+				<div class="mainMid">
+
+					<!-- slide content -->
+					<div class="mainSlide">
+						<ul class="slides">
+							<li><img src="../images/main/visual_img_01.jpg" alt="유통데이터 기반 공급망 기술 실증 사업"></li>
+							<li><img src="../images/main/visual_img_02.jpg" alt="유통데이터 서비스 플랫폼"></li>
+						</ul>
+					</div>
+					<script type="text/javascript">
+						$(window).load(function() {
+							$('.mainSlide').flexslider({
+								animation: "slide",
+								slideshowSpeed: 8000,
+								animationSpeed: 800,
+								directionNav: false,
+								controlNav: true,
+								pausePlay: true,
+								after: function(slider) {
+									/* auto-restart player if paused after action */
+									if (!slider.playing) {
+										slider.play();
+									}
+								}
+							});
+						});
+					</script>
+					<!-- //slide content -->
+
+					<!-- featured link -->
+					<div class="mainFeaturedLink">
+						<ul>
+							<li>
+								<a href="/project/trade_data">
+									<p class="img"><img src="../images/main/link_img_01.jpg" alt="거래 데이터 실증모델"></p>
+									<p class="title">거래 데이터 실증모델</p>
+								</a>
+							</li>
+							<li>
+								<a href="/project/online_export">
+									<p class="img"><img src="../images/main/link_img_02.jpg" alt="온라인 수출 실증모델"></p>
+									<p class="title">온라인 수출 실증모델</p>
+								</a>
+							</li>
+							<li>
+								<a href="/project/distribution">
+									<p class="img"><img src="../images/main/link_img_03.jpg" alt="중소유통/공급망 실증모델"></p>
+									<p class="title">중소유통/공급망 실증모델</p>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<!-- //featured link -->
+
+				</div>
+				<!-- //mid content -->
+
+				<!-- right content -->
+				<div class="mainRight">
+
+					<!-- search -->
+					<div class="mainSearch">
+						<h3>상품데이터 바로 조회</h3>
+						<p class="search">
+							<input type="text" placeholder="찾는 상품의 바코드를 입력해 주세요." id="barcode">
+							<button type="button" onclick="searchProduct()">검색</button>
+						</p>
+					</div>
+					<!-- //search -->
+
+					<!-- notice -->
+					<div class="mainNotice">
+						<h3>공지사항 / 자료실</h3>
+						<a href="/use/board/notice" class="btnMore">더보기</a>
+						<div class="noticeBox">
+							<div class="recent">
+								<a th:href="@{/use/board/{type}/detail/{id}(type=${notices[0].type},id=${notices[0].id})}" th:if="${notices.total > 0}">
+									<p class="date"><span th:text="${#temporals.format(notices[0].registDt, 'dd')}">13</span><span class="month" th:text="${#temporals.format(notices[0].registDt, 'yyyy.MM')}">2021.11</span></p>
+									<p class="title"><span class="category" th:text="'['+(${notices[0].type == 'bbs' ? '자료실' : notices[0].categoryNm})+']'">[컨퍼런스]</span><span th:utext="${notices[0].subject}">온라인∙크로스보더∙디지털커머스</span></p>
+									<p class="content" th:utext="${notices[0].content}">대한상공회의소는 오는 12월 10일(목) 온라인∙크로스보더∙디지털커머스</p>
+								</a>
+							</div>
+							<ul>
+								<li th:each="notice,iter : ${notices}" th:if="${iter.index} > 0"><a th:href="@{/use/board/{type}/detail/{id}(type=${notice.type},id=${notice.id})}"><span class="category" th:text="'['+(${notice.type == 'bbs' ? '자료실' : notice.categoryNm})+']'">[컨퍼런스]</span><span th:utext="${notice.subject}">오픈 데이터 서비스 일시 중지 안내</span></a><span class="date" th:text="${#temporals.format(notice.registDt, 'yyyy-MM-dd')}">2021-09-01</span></li>
+								<li th:remove="all"><a href="#"><span class="category">[공지]</span>코로나19관련 유통상품 목록 공유</a><span class="date">2021-09-01</span></li>
+								<li th:remove="all"><a href="#"><span class="category">[공지]</span>코로나19관련 유통상품 목록 공유</a><span class="date">2021-09-01</span></li>
+							</ul>
+						</div>
+					</div>
+					<!-- //notice -->
+
+					<!-- shortcut -->
+					<div class="mainShortcut">
+						<ul>
+							<li><a href="/introduce/about">데이터 소개</a></li>
+							<li><a href="/use/guide">활용 가이드</a></li>
+							<li><a href="/use/board/bbs">업계 소식</a></li>
+						</ul>
+					</div>
+					<!-- //shortcut -->
+
+					<!-- link -->
+					<div class="mainLink">
+						<ul>
+							<li>
+								<a href="/introduce/partnership">
+									<p class="icon"><img src="../images/main/icon_main_data_registration.png" alt="데이터 제휴"></p>
+									<p class="title">데이터 제휴</p>
+								</a>
+							</li>
+							<li>
+								<a href="/use/subscribe">
+									<p class="icon"><img src="../images/main/icon_main_data_use.png" alt="데이터활용 신청"></p>
+									<p class="title">데이터활용 <br>
+									신청</p>
+								</a>
+							</li>
+							<li>
+								<a href="/project/participate">
+									<p class="icon"><img src="../images/main/icon_main_project.png" alt="실증사업 참여"></p>
+									<p class="title">실증사업 참여</p>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<!-- //link -->
+
+				</div>
+				<!-- //right content -->
+
+			</div>
+			<!-- //main body -->
+
+			<!-- footer -->
+			<!-- footer -->
+<div id="footer">
+	<div class="footerIn">
+		<h1>
+			<span class="industry">산업통상자원부</span>
+			<span class="korea">대한상공회의소</span>
+		</h1>
+		<!-- content -->
+		<div class="content">
+			<div class="info">
+				<span class="address">서울시 중구 세종대로 39 상공회의소회관 17층 대한상공회의소 유통물류진흥원(GS1 KOREA) KCCI B/D, 39, SEJONGDAERO, JUNG-GU, SEOUL, KOREA.</span>
+				<span class="copyright">COPYRIGHT(C) 2021 KCCI. GS1 KOREA. ALL RIGHTS RESERVED.</span>
+				<span class="policy">
+					<a href="/privacy" class="personal">개인정보 처리 방침</a>
+				</span>
+			</div>
+			<div class="contact">
+				<p class="head">[콘텐츠 | 사업제휴 문의]</p>
+				<ul>
+					
+					
+					<li class="mail">
+						<p class="title">E-MAIL</p>
+						<a href="mailto:notnull@korcham.net">notnull@korcham.net</a>
+					</li>
+				</ul>
+			</div>
+			<p class="notice">유통데이터 서비스 플랫폼의 모든 콘텐츠는 저작권법의 보호를 받은바, 무단 전재, 복사, 배포 등을 금합니다.</p>
+		</div>
+		<!-- //content -->
+		<!-- side -->
+		<div class="side">
+			<!-- family site -->
+			<div class="familysite">
+				<div class="dropMenu up">
+					<p class="title"><span>Family Site</span></p>
+					<ul>
+						<li><a href="http://www.motie.go.kr/www/main.do" target="_blank"><span>산업통상자원부</span></a></li>
+						<li><a href="http://www.korcham.net/nCham/Service/Main/appl/Main.asp" target="_blank"><span>대한상공회의소</span></a></li>
+						<li><a href="http://www.gs1kr.org/Service/Main/appl/Main.asp" target="_blank"><span>유통물류진흥원</span></a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- //family site -->
+			<!-- sns -->
+			<div class="sns">
+				<ul>
+					<li class="tradeTV"><a href="https://www.youtube.com/c/%EC%9C%A0%ED%86%B5TV" target="_blank">대한상공회의소 유통 TV</a></li>
+					
+					
+				</ul>
+			</div>
+			<!-- //sns -->
+		</div>
+		<!-- //side -->
+	</div>
+</div>
+<!-- //footer -->
+			<!-- //footer -->
+		</div>
+	</div>
+</body>
+</html>

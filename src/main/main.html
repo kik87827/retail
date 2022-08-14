@@ -2,22 +2,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 @@include('../include/head.html')
-<style>
-.rankList .goods {
-	width: 150px;
-}
-.text-ellipsis {
-	display: table;
-	table-layout: fixed;
-	white-space: nowrap;
-	width: 100%;
-}
-.text-ellipsis > * {
-	display: table-cell;
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
-</style>
 </head>
 <body>
 	<div id="wrap">
@@ -25,249 +9,485 @@
 			<!-- header -->
 			@@include('../include/header.html')
 			<!-- //header -->
-
-			<!-- main body -->
-			<div id="mainBody">
-
-				<!-- left content -->
-				<div class="mainLeft">
-
-					<!-- popular -->
-					<div class="mainPopular">
-						<h3>월간 인기상품 TOP 100</h3>
-						<a href="/service/chart" class="btnMore">더보기</a>
-						<div class="popularBox">
-							<p class="date" th:text="${#temporals.format(rankingYm, 'yyyy.MM')}">2021.09</p>
-							<!-- top 100 -->
-							<div class="popularList">
-								<ul class="slides">
-									<li th:each="entry : ${hotProducts}">
-										<p class="title" th:text="${entry.key}">생수</p>
-										<table class="rankList">
-											<tr class="gold">
-												<td class="rank" th:text="${entry.value[0].ranking}">1</td>
-												<td class="change" th:if="${entry.value[0].rankingVariation > 0}"><span class="up" th:text="${'↑'+entry.value[0].rankingVariation}">↑4</span></td>
-												<td class="change" th:if="${entry.value[0].rankingVariation < 0}"><span class="down" th:text="${'↓'+(entry.value[0].rankingVariation*-1)}">↓2</span></td>
-												<td class="change" th:if="${entry.value[0].rankingVariation == 0}">-</td>
-												<td class="goods"><div class="text-ellipsis"><span th:text="${entry.value[0].productNm}">제주 삼다수 2L</span></div></td>
-												<td class="manufacturer"><div class="text-ellipsis"><span th:text="${entry.value[0].productMaker}">광동제약</span></div></td>
-											</tr>
-											<tr class="silver">
-												<td class="rank" th:text="${entry.value[1].ranking}">2</td>
-												<td class="change" th:if="${entry.value[1].rankingVariation > 0}"><span class="up" th:text="${'↑'+entry.value[1].rankingVariation}">↑4</span></td>
-												<td class="change" th:if="${entry.value[1].rankingVariation < 0}"><span class="down" th:text="${'↓'+(entry.value[1].rankingVariation*-1)}">↓2</span></td>
-												<td class="change" th:if="${entry.value[1].rankingVariation == 0}">-</td>
-												<td class="goods"><div class="text-ellipsis"><span th:text="${entry.value[1].productNm}">제주 삼다수 2L*6</span></div></td>
-												<td class="manufacturer"><div class="text-ellipsis"><span th:text="${entry.value[1].productMaker}">광동제약</span></div></td>
-											</tr>
-											<tr class="bronze">
-												<td class="rank" th:text="${entry.value[2].ranking}">3</td>
-												<td class="change" th:if="${entry.value[2].rankingVariation > 0}"><span class="up" th:text="${'↑'+entry.value[2].rankingVariation}">↑4</span></td>
-												<td class="change" th:if="${entry.value[2].rankingVariation < 0}"><span class="down" th:text="${'↓'+(entry.value[2].rankingVariation*-1)}">↓2</span></td>
-												<td class="change" th:if="${entry.value[2].rankingVariation == 0}">-</td>
-												<td class="goods"><div class="text-ellipsis"><span th:text="${entry.value[2].productNm}">제주 삼다수 500...</span></div></td>
-												<td class="manufacturer"><div class="text-ellipsis"><span th:text="${entry.value[2].productMaker}">광동제약</span></div></td>
-											</tr>
-											<tr th:each="hotProduct,iter : ${entry.value}" th:if="${iter.index > 2}">
-												<td class="rank" th:text="${hotProduct.ranking}">4</td>
-												<td class="change" th:if="${hotProduct.rankingVariation > 0}"><span class="up" th:text="${'↑'+hotProduct.rankingVariation}">↑4</span></td>
-												<td class="change" th:if="${hotProduct.rankingVariation < 0}"><span class="down" th:text="${'↓'+(hotProduct.rankingVariation*-1)}">↓2</span></td>
-												<td class="change" th:if="${hotProduct.rankingVariation == 0}">-</td>
-												<td class="goods"><div class="text-ellipsis"><span th:text="${hotProduct.productNm}">제주 삼다수 500...</span></div></td>
-												<td class="manufacturer"><div class="text-ellipsis"><span th:text="${hotProduct.productMaker}">광동제약</span></div></td>
-											</tr>
-										</table>
-									</li>
-								</ul>
-							</div>
-							<script type="text/javascript">
-								$(window).load(function() {
-									$('.popularList').flexslider({
-										animation: "slide",
-										slideshow: false,
-										slideshowSpeed: 3000,
-										animationSpeed: 800,
-										directionNav: true,
-										controlNav: false,
-										pausePlay: false,
-										after: function(slider) {
-											/* auto-restart player if paused after action */
-											/*if (!slider.playing) {
-												slider.play();
-											}*/
-										}
-									});
-								});
-							</script>
-							<!-- //top 100 -->
+			
+			<!-- main -->
+			<main class="main_contents">
+				<section class="mv_zone">
+					<div class="mv_inner_wrap">
+						<div class="mv_copy_group">
+							<p class="mv_eng_copy">Retail Data Service Platform</p>
+							<p class="mv_main_copy">유통데이터 서비스 플랫폼</p>
+							<p class="mv_sub_copy">유통데이터(상품정보+거래정보)를 활용한 <br>다양한 비즈니스 모델을 수행할 수 있도록 지원합니다.</p>
 						</div>
+						<fieldset class="mv_fieldset">
+							<legend>검색</legend>
+							<input class="mv_fieldset_input" placeholder="찾고 싶은 상품의 바코드를 입력해 주세요.">
+							<a href="#" class="btn_mv_submit"><span class="btn_mv_submit_text">검색</span></a>
+						</fieldset>
 					</div>
-					<!-- //popular -->
-
-					<!-- link -->
-					<div class="mainLink">
-						<ul>
-							<li>
-								<a href="/service/hs_code">
-									<p class="icon"><img src="../images/main/icon_main_hs.png" alt="HS-Code 조회"></p>
-									<p class="title">HS-Code <br>
-									조회</p>
-								</a>
-							</li>
-							<li>
-								<a href="/service/product_online">
-									<p class="icon"><img src="../images/main/icon_main_online.png" alt="온라인유통 상품정보"></p>
-									<p class="title">온라인유통 <br>
-									상품정보</p>
-								</a>
-							</li>
-							<li>
-								<a href="/service/attribute">
-									<p class="icon"><img src="../images/main/icon_main_product.png" alt="상품 부가속성 (자연어/평판정보)"></p>
-									<p class="title">상품 확대속성 <br>
-									<span>(자연어/평판정보)</span></p>
-								</a>
-							</li>
-						</ul>
-					</div>
-					<!-- //link -->
-
-				</div>
-				<!-- //left content -->
-
-				<!-- mid content -->
-				<div class="mainMid">
-
-					<!-- slide content -->
-					<div class="mainSlide">
-						<ul class="slides">
-							<li><img src="../images/main/visual_img_01.jpg" alt="유통데이터 기반 공급망 기술 실증 사업"></li>
-							<li><img src="../images/main/visual_img_02.jpg" alt="유통데이터 서비스 플랫폼"></li>
-						</ul>
-					</div>
-					<script type="text/javascript">
-						$(window).load(function() {
-							$('.mainSlide').flexslider({
-								animation: "slide",
-								slideshowSpeed: 8000,
-								animationSpeed: 800,
-								directionNav: false,
-								controlNav: true,
-								pausePlay: true,
-								after: function(slider) {
-									/* auto-restart player if paused after action */
-									if (!slider.playing) {
-										slider.play();
-									}
-								}
-							});
-						});
-					</script>
-					<!-- //slide content -->
-
-					<!-- featured link -->
-					<div class="mainFeaturedLink">
-						<ul>
-							<li>
-								<a href="/project/trade_data">
-									<p class="img"><img src="../images/main/link_img_01.jpg" alt="거래 데이터 실증모델"></p>
-									<p class="title">거래 데이터 실증모델</p>
-								</a>
-							</li>
-							<li>
-								<a href="/project/online_export">
-									<p class="img"><img src="../images/main/link_img_02.jpg" alt="온라인 수출 실증모델"></p>
-									<p class="title">온라인 수출 실증모델</p>
-								</a>
-							</li>
-							<li>
-								<a href="/project/distribution">
-									<p class="img"><img src="../images/main/link_img_03.jpg" alt="중소유통/공급망 실증모델"></p>
-									<p class="title">중소유통/공급망 실증모델</p>
-								</a>
-							</li>
-						</ul>
-					</div>
-					<!-- //featured link -->
-
-				</div>
-				<!-- //mid content -->
-
-				<!-- right content -->
-				<div class="mainRight">
-
-					<!-- search -->
-					<div class="mainSearch">
-						<h3>상품데이터 바로 조회</h3>
-						<p class="search">
-							<input type="text" placeholder="찾는 상품의 바코드를 입력해 주세요." id="barcode">
-							<button type="button" onclick="searchProduct()">검색</button>
-						</p>
-					</div>
-					<!-- //search -->
-
-					<!-- notice -->
-					<div class="mainNotice">
-						<h3>공지사항 / 자료실</h3>
-						<a href="/use/board/notice" class="btnMore">더보기</a>
-						<div class="noticeBox">
-							<div class="recent">
-								<a th:href="@{/use/board/{type}/detail/{id}(type=${notices[0].type},id=${notices[0].id})}" th:if="${notices.total > 0}">
-									<p class="date"><span th:text="${#temporals.format(notices[0].registDt, 'dd')}">13</span><span class="month" th:text="${#temporals.format(notices[0].registDt, 'yyyy.MM')}">2021.11</span></p>
-									<p class="title"><span class="category" th:text="'['+(${notices[0].type == 'bbs' ? '자료실' : notices[0].categoryNm})+']'">[컨퍼런스]</span><span th:utext="${notices[0].subject}">온라인∙크로스보더∙디지털커머스</span></p>
-									<p class="content" th:utext="${notices[0].content}">대한상공회의소는 오는 12월 10일(목) 온라인∙크로스보더∙디지털커머스</p>
-								</a>
-							</div>
-							<ul>
-								<li th:each="notice,iter : ${notices}" th:if="${iter.index} > 0"><a th:href="@{/use/board/{type}/detail/{id}(type=${notice.type},id=${notice.id})}"><span class="category" th:text="'['+(${notice.type == 'bbs' ? '자료실' : notice.categoryNm})+']'">[컨퍼런스]</span><span th:utext="${notice.subject}">오픈 데이터 서비스 일시 중지 안내</span></a><span class="date" th:text="${#temporals.format(notice.registDt, 'yyyy-MM-dd')}">2021-09-01</span></li>
-								<li th:remove="all"><a href="#"><span class="category">[공지]</span>코로나19관련 유통상품 목록 공유</a><span class="date">2021-09-01</span></li>
-								<li th:remove="all"><a href="#"><span class="category">[공지]</span>코로나19관련 유통상품 목록 공유</a><span class="date">2021-09-01</span></li>
+				</section>
+				<section class="mc_zone">
+					<div class="mc_menu_list_wrap">
+						<div class="mc_max_pix">
+							<ul class="mc_menu_list">
+								<li><a href="#" class="mc_menu ico_01"><span class="mc_menu_text">상품 정보 조회</span></a></li>
+								<li><a href="#" class="mc_menu ico_02"><span class="mc_menu_text">인기상품 트렌드</span></a></li>
+								<li><a href="#" class="mc_menu ico_03"><span class="mc_menu_text">소비자 구매 트렌드</span></a></li>
+								<li><a href="#" class="mc_menu ico_04"><span class="mc_menu_text">중소매장 매출 분석정보</span></a></li>
+								<li><a href="#" class="mc_menu ico_05"><span class="mc_menu_text">교육/행사</span></a></li>
 							</ul>
 						</div>
 					</div>
-					<!-- //notice -->
-
-					<!-- shortcut -->
-					<div class="mainShortcut">
-						<ul>
-							<li><a href="/introduce/about">데이터 소개</a></li>
-							<li><a href="/use/guide">활용 가이드</a></li>
-							<li><a href="/use/board/bbs">업계 소식</a></li>
-						</ul>
+					<div class="mc_linkage_wrap">
+						<div class="mc_max_pix">
+							<div class="mc_title_wrap">
+								<p class="mc_title"><a href="#" class="mc_title_link">인기상품 트렌드</a></p>
+								<p class="mc_title_sub">한달간 소비자에게 가장 사랑받는 제품을 알아보기</p>
+							</div>
+							<div class="mc_content_wrap">
+								<div class="mc_boxtab_list">
+									<li class="active"><a href="#" class="mc_boxtab">#라면</a></li>
+									<li><a href="#" class="mc_boxtab">#맥주</a></li>
+									<li><a href="#" class="mc_boxtab">#생수</a></li>
+									<li><a href="#" class="mc_boxtab">#요구르트</a></li>
+									<li><a href="#" class="mc_boxtab">#우유</a></li>
+									<li><a href="#" class="mc_boxtab">#커피</a></li>
+								</div>
+								<div class="mc_linkage_box">
+									<ul class="mc_text_tab_list">
+										<li class="active"><a href="#data_item01" class="mc_text_tab">오프라인 인기상품</a></li>
+										<li><a href="#data_item02" class="mc_text_tab">온라인 인기상품</a></li>
+										<li><a href="#data_item03" class="mc_text_tab">상품구색</a></li>
+									</ul>
+									<div class="mc_lineage_tabcont_group">
+										<div class="mc_data_both active" id="data_item01">
+											<div clsa="mc_data_cols define_list">
+												<div class="mc_data_list active">
+													<a href="#" class="mc_data_tr active">
+														<div class="mc_data_cells define_rank">
+															<span class="mc_data_rank_wrap">
+																<span class="mc_data_rank">1</span>
+																<span class="mc_data_current">-</span>
+															</span>
+														</div>
+														<div class="mc_data_cells define_code"><span class="mc_data_text">8808244101079</span></div>
+														<div class="mc_data_cells define_title"><span class="mc_data_text">제주 삼다수 2L</span></div>
+														<div class="mc_data_cells define_company"><span class="mc_data_text type2">광동제약</span></div>
+													</a>
+													<a href="#" class="mc_data_tr">
+														<div class="mc_data_cells define_rank">
+															<span class="mc_data_rank_wrap">
+																<span class="mc_data_rank">2</span>
+																<span class="mc_data_current">-</span>
+															</span>
+														</div>
+														<div class="mc_data_cells define_code"><span class="mc_data_text">8808244201045</span></div>
+														<div class="mc_data_cells define_title"><span class="mc_data_text">제주 삼다수 2L*6</span></div>
+														<div class="mc_data_cells define_company"><span class="mc_data_text type2">광동제약</span></div>
+													</a>
+													<a href="#" class="mc_data_tr">
+														<div class="mc_data_cells define_rank">
+															<span class="mc_data_rank_wrap">
+																<span class="mc_data_rank">3</span>
+																<span class="mc_data_current">-</span>
+															</span>
+														</div>
+														<div class="mc_data_cells define_code"><span class="mc_data_text">8808244208044</span></div>
+														<div class="mc_data_cells define_title"><span class="mc_data_text">제주 삼다수 500ml</span></div>
+														<div class="mc_data_cells define_company"><span class="mc_data_text type2">광동제약</span></div>
+													</a>
+													<a href="#" class="mc_data_tr">
+														<div class="mc_data_cells define_rank">
+															<span class="mc_data_rank_wrap">
+																<span class="mc_data_rank">4</span>
+																<span class="mc_data_current down">2</span>
+															</span>
+														</div>
+														<div class="mc_data_cells define_code"><span class="mc_data_text">8808244201014</span></div>
+														<div class="mc_data_cells define_title"><span class="mc_data_text">제주 삼다수 500ml*20</span></div>
+														<div class="mc_data_cells define_company"><span class="mc_data_text type2">광동제약</span></div>
+													</a>
+													<a href="#" class="mc_data_tr">
+														<div class="mc_data_cells define_rank">
+															<span class="mc_data_rank_wrap">
+																<span class="mc_data_rank">5</span>
+																<span class="mc_data_current up">4</span>
+															</span>
+														</div>
+														<div class="mc_data_cells define_code"><span class="mc_data_text">8808244101086</span></div>
+														<div class="mc_data_cells define_title"><span class="mc_data_text">해태 강원평창수 2L*6</span></div>
+														<div class="mc_data_cells define_company"><span class="mc_data_text type2">해태에이스에이스</span></div>
+													</a>
+												</div>
+											</div>
+											<div clsa="mc_data_cols define_chart">
+												<!-- chart -->
+												<div style="display:flex;align-items:center;justify-content:center;">
+													chart
+												</div>
+												<!-- // chart -->
+											</div>
+										</div>
+										<div class="mc_data_both" id="data_item02">
+											<div clsa="mc_data_cols define_list">
+												<div class="mc_data_list active">
+													<a href="#" class="mc_data_tr active">
+														<div class="mc_data_cells define_rank">
+															<span class="mc_data_rank_wrap">
+																<span class="mc_data_rank">1</span>
+																<span class="mc_data_current">-</span>
+															</span>
+														</div>
+														<div class="mc_data_cells define_code"><span class="mc_data_text">8808244101079</span></div>
+														<div class="mc_data_cells define_title"><span class="mc_data_text">제주 삼다수 2L_2</span></div>
+														<div class="mc_data_cells define_company"><span class="mc_data_text type2">광동제약</span></div>
+													</a>
+													<a href="#" class="mc_data_tr">
+														<div class="mc_data_cells define_rank">
+															<span class="mc_data_rank_wrap">
+																<span class="mc_data_rank">2</span>
+																<span class="mc_data_current">-</span>
+															</span>
+														</div>
+														<div class="mc_data_cells define_code"><span class="mc_data_text">8808244201045</span></div>
+														<div class="mc_data_cells define_title"><span class="mc_data_text">제주 삼다수 2L*6</span></div>
+														<div class="mc_data_cells define_company"><span class="mc_data_text type2">광동제약</span></div>
+													</a>
+													<a href="#" class="mc_data_tr">
+														<div class="mc_data_cells define_rank">
+															<span class="mc_data_rank_wrap">
+																<span class="mc_data_rank">3</span>
+																<span class="mc_data_current">-</span>
+															</span>
+														</div>
+														<div class="mc_data_cells define_code"><span class="mc_data_text">8808244208044</span></div>
+														<div class="mc_data_cells define_title"><span class="mc_data_text">제주 삼다수 500ml</span></div>
+														<div class="mc_data_cells define_company"><span class="mc_data_text type2">광동제약</span></div>
+													</a>
+													<a href="#" class="mc_data_tr">
+														<div class="mc_data_cells define_rank">
+															<span class="mc_data_rank_wrap">
+																<span class="mc_data_rank">4</span>
+																<span class="mc_data_current down">2</span>
+															</span>
+														</div>
+														<div class="mc_data_cells define_code"><span class="mc_data_text">8808244201014</span></div>
+														<div class="mc_data_cells define_title"><span class="mc_data_text">제주 삼다수 500ml*20</span></div>
+														<div class="mc_data_cells define_company"><span class="mc_data_text type2">광동제약</span></div>
+													</a>
+													<a href="#" class="mc_data_tr">
+														<div class="mc_data_cells define_rank">
+															<span class="mc_data_rank_wrap">
+																<span class="mc_data_rank">5</span>
+																<span class="mc_data_current up">4</span>
+															</span>
+														</div>
+														<div class="mc_data_cells define_code"><span class="mc_data_text">8808244101086</span></div>
+														<div class="mc_data_cells define_title"><span class="mc_data_text">해태 강원평창수 2L*6</span></div>
+														<div class="mc_data_cells define_company"><span class="mc_data_text type2">해태에이스에이스</span></div>
+													</a>
+												</div>
+											</div>
+											<div clsa="mc_data_cols define_chart">
+												<!-- chart -->
+												<div style="display:flex;align-items:center;justify-content:center;">
+													chart
+												</div>
+												<!-- // chart -->
+											</div>
+										</div>
+										<div class="mc_data_both" id="data_item03">
+											<div clsa="mc_data_cols define_list">
+												<div class="mc_data_list active">
+													<a href="#" class="mc_data_tr active">
+														<div class="mc_data_cells define_rank">
+															<span class="mc_data_rank_wrap">
+																<span class="mc_data_rank">1</span>
+																<span class="mc_data_current">-</span>
+															</span>
+														</div>
+														<div class="mc_data_cells define_code"><span class="mc_data_text">8808244101079</span></div>
+														<div class="mc_data_cells define_title"><span class="mc_data_text">제주 삼다수 2L_3</span></div>
+														<div class="mc_data_cells define_company"><span class="mc_data_text type2">광동제약</span></div>
+													</a>
+													<a href="#" class="mc_data_tr">
+														<div class="mc_data_cells define_rank">
+															<span class="mc_data_rank_wrap">
+																<span class="mc_data_rank">2</span>
+																<span class="mc_data_current">-</span>
+															</span>
+														</div>
+														<div class="mc_data_cells define_code"><span class="mc_data_text">8808244201045</span></div>
+														<div class="mc_data_cells define_title"><span class="mc_data_text">제주 삼다수 2L*6</span></div>
+														<div class="mc_data_cells define_company"><span class="mc_data_text type2">광동제약</span></div>
+													</a>
+													<a href="#" class="mc_data_tr">
+														<div class="mc_data_cells define_rank">
+															<span class="mc_data_rank_wrap">
+																<span class="mc_data_rank">3</span>
+																<span class="mc_data_current">-</span>
+															</span>
+														</div>
+														<div class="mc_data_cells define_code"><span class="mc_data_text">8808244208044</span></div>
+														<div class="mc_data_cells define_title"><span class="mc_data_text">제주 삼다수 500ml</span></div>
+														<div class="mc_data_cells define_company"><span class="mc_data_text type2">광동제약</span></div>
+													</a>
+													<a href="#" class="mc_data_tr">
+														<div class="mc_data_cells define_rank">
+															<span class="mc_data_rank_wrap">
+																<span class="mc_data_rank">4</span>
+																<span class="mc_data_current down">2</span>
+															</span>
+														</div>
+														<div class="mc_data_cells define_code"><span class="mc_data_text">8808244201014</span></div>
+														<div class="mc_data_cells define_title"><span class="mc_data_text">제주 삼다수 500ml*20</span></div>
+														<div class="mc_data_cells define_company"><span class="mc_data_text type2">광동제약</span></div>
+													</a>
+													<a href="#" class="mc_data_tr">
+														<div class="mc_data_cells define_rank">
+															<span class="mc_data_rank_wrap">
+																<span class="mc_data_rank">5</span>
+																<span class="mc_data_current up">4</span>
+															</span>
+														</div>
+														<div class="mc_data_cells define_code"><span class="mc_data_text">8808244101086</span></div>
+														<div class="mc_data_cells define_title"><span class="mc_data_text">해태 강원평창수 2L*6</span></div>
+														<div class="mc_data_cells define_company"><span class="mc_data_text type2">해태에이스에이스</span></div>
+													</a>
+												</div>
+											</div>
+											<div clsa="mc_data_cols define_chart">
+												<!-- chart -->
+												<div style="display:flex;align-items:center;justify-content:center;">
+													chart
+												</div>
+												<!-- // chart -->
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
-					<!-- //shortcut -->
-
-					<!-- link -->
-					<div class="mainLink">
-						<ul>
-							<li>
-								<a href="/introduce/partnership">
-									<p class="icon"><img src="../images/main/icon_main_data_registration.png" alt="데이터 제휴"></p>
-									<p class="title">데이터 제휴</p>
-								</a>
-							</li>
-							<li>
-								<a href="/use/subscribe">
-									<p class="icon"><img src="../images/main/icon_main_data_use.png" alt="데이터활용 신청"></p>
-									<p class="title">데이터활용 <br>
-									신청</p>
-								</a>
-							</li>
-							<li>
-								<a href="/project/participate">
-									<p class="icon"><img src="../images/main/icon_main_project.png" alt="실증사업 참여"></p>
-									<p class="title">실증사업 참여</p>
-								</a>
-							</li>
-						</ul>
+					<div class="mc_linkage_wrap">
+						<div class="mc_max_pix">
+							<div class="mc_title_wrap">
+								<p class="mc_title"><a href="#" class="mc_title_link">소비자 구매 트렌드</a></p>
+								<p class="mc_title_sub">프랜차이즈 업체의 결제 트렌드 확인하기</p>
+							</div>
+							<div class="mc_content_wrap">
+								<div class="mc_boxtab_list">
+									<li class="active"><a href="#" class="mc_boxtab">#온라인쇼핑</a></li>
+									<li><a href="#" class="mc_boxtab">#카페</a></li>
+									<li><a href="#" class="mc_boxtab">#펀의점</a></li>
+								</div>
+								<div class="mc_linkage_box">
+									<div class="mc_data_both">
+										<div clsa="mc_data_cols define_list">
+											<div class="mc_data_list">
+												<a href="#" class="mc_data_tr active">
+													<div class="mc_data_cells define_rank">
+														<span class="mc_data_rank_wrap">
+															<span class="mc_data_rank">1</span>
+															<span class="mc_data_current">-</span>
+														</span>
+													</div>
+													<div class="mc_data_cells define_title"><span class="mc_data_text">쿠팡</span></div>
+												</a>
+												<a href="#" class="mc_data_tr">
+													<div class="mc_data_cells define_rank">
+														<span class="mc_data_rank_wrap">
+															<span class="mc_data_rank">2</span>
+															<span class="mc_data_current">-</span>
+														</span>
+													</div>
+													<div class="mc_data_cells define_title"><span class="mc_data_text">네이버페이</span></div>
+												</a>
+												<a href="#" class="mc_data_tr">
+													<div class="mc_data_cells define_rank">
+														<span class="mc_data_rank_wrap">
+															<span class="mc_data_rank">3</span>
+															<span class="mc_data_current">-</span>
+														</span>
+													</div>
+													<div class="mc_data_cells define_title"><span class="mc_data_text">카카오페이</span></div>
+												</a>
+												<a href="#" class="mc_data_tr">
+													<div class="mc_data_cells define_rank">
+														<span class="mc_data_rank_wrap">
+															<span class="mc_data_rank">4</span>
+															<span class="mc_data_current">-</span>
+														</span>
+													</div>
+													<div class="mc_data_cells define_title"><span class="mc_data_text">네이버</span></div>
+												</a>
+												<a href="#" class="mc_data_tr">
+													<div class="mc_data_cells define_rank">
+														<span class="mc_data_rank_wrap">
+															<span class="mc_data_rank">5</span>
+															<span class="mc_data_current up">4</span>
+														</span>
+													</div>
+													<div class="mc_data_cells define_title"><span class="mc_data_text">11번가</span></div>
+												</a>
+											</div>
+										</div>
+										<div clsa="mc_data_cols define_chart">
+											<!-- chart -->
+											<div style="display:flex;align-items:center;justify-content:center;">
+												chart
+											</div>
+											<!-- // chart -->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
-					<!-- //link -->
+					<div class="mc_banner_wrap">
+						<div class="mc_control_layer"><a href="#" class="btn_banner_control prev"><span class="hdtext">이전</span></a></div>
+						<div class="swiper-container mc_banner_container">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<a href="#" class="mc_banner">
+										<div class="mc_banner_pixin">
+											<div class="mc_banner_main">데이터 교육</div>
+											<div class="mc_banner_sub">데이터 중심으로 다변하는 사업 생태계에서 경쟁력 높이기</div>
+										</div>
+									</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#" class="mc_banner">
+										<div class="mc_banner_pixin">
+											<div class="mc_banner_main">데이터 교육2</div>
+											<div class="mc_banner_sub">데이터 중심으로 다변하는 사업 생태계에서 경쟁력 높이기</div>
+										</div>
+									</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#" class="mc_banner">
+										<div class="mc_banner_pixin">
+											<div class="mc_banner_main">데이터 교육3</div>
+											<div class="mc_banner_sub">데이터 중심으로 다변하는 사업 생태계에서 경쟁력 높이기</div>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="mc_control_layer"><a href="#" class="btn_banner_control next"><span class="hdtext">다음</span></a></div>
+					</div>
+					<div class="mc_board_obj_wrap">
+						<div class="mc_max_pix">
+							<div class="mc_board_title_wrap"><h3 class="mc_board_title">소식</h3></div>
+							<div class="mc_board_flex_wrap">
+								<div class="mc_board_tabmenu_cols">
+									<ul class="mc_board_tabmenu_list">
+										<li class="active"><a href="#board_item01" class="mc_board_tabmenu">공지사항/자료실</a></li>
+										<li><a href="#board_item02" class="mc_board_tabmenu">유통시장동향 레포트</a></li>
+										<li><a href="#board_item03" class="mc_board_tabmenu">FAQ</a></li>
+									</ul>
+								</div>
+								<div class="mc_board_tab_cols">
+									<div class="mc_board_box active" id="board_item01">
+										<div class="mc_board_box_title_wrap"><p class="mc_board_box_title">공지사항/자료실</p></div>
+										<div class="mc_board_box_content">
+											<ul class="mc_board_list">
+												<li>
+													<a href="#" class="mc_board_item">
+														<span class="mc_board_main">[공지] 온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의</span>
+														<span class="mc_board_sub">2021-09-01</span>
+													</a>
+												</li>
+												<li>
+													<a href="#" class="mc_board_item">
+														<span class="mc_board_main">[공지] 코로나19관련 유통상품 목록 공유</span>
+														<span class="mc_board_sub">2021-09-01</span>
+													</a>
+												</li>
+												<li>
+													<a href="#" class="mc_board_item">
+														<span class="mc_board_main">[공지] 온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의</span>
+														<span class="mc_board_sub">2021-09-01</span>
+													</a>
+												</li>
+												<li>
+													<a href="#" class="mc_board_item">
+														<span class="mc_board_main">[공지] 온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의</span>
+														<span class="mc_board_sub">2021-09-01</span>
+													</a>
+												</li>
+												<li>
+													<a href="#" class="mc_board_item">
+														<span class="mc_board_main">[공지] 온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의</span>
+														<span class="mc_board_sub">2021-09-01</span>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<a href="#" class="btn_mcbmore"><span class="hdtext">공지사항/자료실 더보기</span></a>
+									</div>
+									<div class="mc_board_box" id="board_item02">
+										<div class="mc_board_box_title_wrap"><p class="mc_board_box_title">유통시장동향 레포트</p></div>
+										<div class="mc_board_box_content">
+											<ul class="mc_board_list">
+												<li>
+													<a href="#" class="mc_board_item">
+														<span class="mc_board_main">[공지] 온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의</span>
+														<span class="mc_board_sub">2021-09-01</span>
+													</a>
+												</li>
+												<li>
+													<a href="#" class="mc_board_item">
+														<span class="mc_board_main">[공지] 코로나19관련 유통상품 목록 공유</span>
+														<span class="mc_board_sub">2021-09-01</span>
+													</a>
+												</li>
+												<li>
+													<a href="#" class="mc_board_item">
+														<span class="mc_board_main">[공지] 온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의</span>
+														<span class="mc_board_sub">2021-09-01</span>
+													</a>
+												</li>
+												<li>
+													<a href="#" class="mc_board_item">
+														<span class="mc_board_main">[공지] 온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의</span>
+														<span class="mc_board_sub">2021-09-01</span>
+													</a>
+												</li>
+												<li>
+													<a href="#" class="mc_board_item">
+														<span class="mc_board_main">[공지] 온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의온라인∙크로스보더∙디지털커머스 시대의</span>
+														<span class="mc_board_sub">2021-09-01</span>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<a href="#" class="btn_mcbmore"><span class="hdtext">유통시장동향 레포트 더보기</span></a>
+									</div>
+									<div class="mc_board_box" id="board_item03">
+										<div class="mc_board_box_title_wrap"><p class="mc_board_box_title">FAQ</p></div>
+										<div class="mc_board_box_content">
+											<ul class="mc_board_list">
+												<li class="nodata_li">
+													<p class="nodata_para">데이터가 없습니다.</p>
+												</li>
+											</ul>
+										</div>
+										<a href="#" class="btn_mcbmore"><span class="hdtext">FAQ 더보기</span></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+			<!-- // main -->
 
-				</div>
-				<!-- //right content -->
-
+			<!-- quick_layer -->
+			<div class="quick_layer_wrap">
+				<a href="javascript:;" class="quick_obj"><span class="quick_word">유통데이터 분석 컨설팅</span></a>
 			</div>
-			<!-- //main body -->
+			<!-- // quick_layer -->
 
 			<!-- footer -->
 			@@include('../include/footer.html')

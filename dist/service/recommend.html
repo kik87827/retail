@@ -37,6 +37,7 @@
 
 	<link rel="stylesheet" type="text/css" href="/css/common.css">
 	<link rel="stylesheet" type="text/css" href="/css/custom.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css"> <!-- css 추가  -->
 	<script src="/js/jquery-1.8.3.min.js"></script>
 	<script src="/js/jquery.flexslider-min.js"></script>
 	<script src="/js/style.js"></script>
@@ -69,20 +70,10 @@
 	<link rel="stylesheet" type="text/css" href="/css/MonthPicker.css" />
 	<script src="/js/jquery-ui.min.js"></script>
 	<script src="/js/MonthPicker.js"></script>
-	<style>
-		.topText span,
-		.dotList span {
-			color: #f16333;
-			font-weight: initial;
-			font-size: small;
-			margin-left: 10px
-		}
-
-		.sizeSgmt,
-		.recommendPoint {
-			text-align: center
-		}
-	</style>
+	<!-- <style>
+		.topText span, .dotList span {color:#f16333; font-weight: initial; font-size: small; margin-left: 10px}
+		.sizeSgmt, .recommendPoint {text-align: center}
+	</style> -->
 </head>
 
 <body>
@@ -452,42 +443,120 @@
 					<!-- contents -->
 					<div id="contents" class="serviceChart">
 						<!-- top surmnary -->
-						<div class="topSummary lineBox">
+						<div class="topSummary lineBox has_toggle">
 							<div class="boxBg">
 								<div class="indentCon">
 									<p class="icon"><img src="../images/common/icon_circle_popular_notice.png" alt="주요공지"></p>
 									<p class="topText">본 서비스는 유통상품 표준DB 를 활용하여 유통사 POS 데이터를 집계 분석한 결과로써, (주)마켓링크에서 제공하는
-										분석자료를 바탕으로 운영됩니다. <span>* 상품구색 : 매장에서 진열-판매하는 상품 종류를 의미 </span></p>
-									<ul class="dotList">
+										분석자료를 바탕으로 운영됩니다. <strong class="emptext color_org">* 상품구색 : 매장에서 진열-판매하는 상품 종류를 의미 </strong></p>
+									<ul class="dotList type2">
 										<li>상품정보 출처 : 대한상공회의소 유통상품 표준DB</li>
 										<li>POS 데이터 출처 : 국내 주요 대형마트, SSM</li>
 										<li>매출순위 : 카테고리 내 매출액 총합 기준 순위 </li>
-										<li>사이즈 세그먼트 : 상품의 ‘총중량’을 기준으로 [대] [중] [소] 사이즈로 구분 <span>* [대] 30% [중] 40% [소] 30% 비율로 구색 추천</span></li>
+										<li>사이즈 세그먼트 : 상품의 ‘총중량’을 기준으로 [대] [중] [소] 사이즈로 구분 <strong class="emptext color_org">* [대] 30% [중] 40% [소] 30% 비율로 구색 추천</strong></li>
 									</ul>
 								</div>
-								<div class="">
+								<div class="toggle_content">
 									<p class="img center"><img src="../images/service/img_sizeSgmt.png" alt="HS code"></p>
+									<div class="indentCon">
+										<ul class="dotList">
+											<li>구색추천 지수 : 단순 매출순위가 아닌, 소비자 니즈 만족을 위해 매장별로 반드시 진열-판매해야 하는 상품 여부를 수치로 제공</li>
+										</ul>
+									</div>
+									<div class="">
+										<p class="img center"><img src="../images/service/img_recommend.png" alt="HS code"></p>
+									</div>
 								</div>
-								<div class="indentCon">
-									<ul class="dotList">
-										<li>구색추천 지수 : 단순 매출순위가 아닌, 소비자 니즈 만족을 위해 매장별로 반드시 진열-판매해야 하는 상품 여부를 수치로 제공</li>
-									</ul>
-								</div>
-								<div class="">
-									<p class="img center"><img src="../images/service/img_recommend.png" alt="HS code"></p>
-								</div>
-								<div class="consult">
-									<ul class="contactList">
-										<li class="head">월간 상품구색추천 관련 상세문의 : <span class="locale">(주)마켓링크 유통데이터 연구소</span></li>
-										<li class="email"><a href="mailto:sangwoo.kim@marketlink.co.kr">sangwoo.kim@marketlink.co.kr</a></li>
-									</ul>
+								<div class="author_item flex_layout align_right">
+									<div class="flex_item">
+										<p class="key_text">오프라인 인기상품 리스트 관련 상세문의 :</p>
+									</div>
+									<div class="flex_item">
+										<ul class="author_list">
+											<li><span class="author_obj ico_01"><span class="author_obj_text">마켓링크 유통데이터 연구소</span></span></li>
+											<li><span class="author_obj ico_02"><span class="author_obj_text">sangwoo.kim@marketlink.co.kr</span></span></li>
+										</ul>
+									</div>
 								</div>
 							</div>
+							<a href="javascript:;" class="btn_boxtoggle"><span class="hdtext">내용 더보기/접기</span></a>
 						</div>
 						<!-- //top surmnary -->
 						<!-- top 100 -->
 						<div class="couUnit top100">
-							<h4>월간 상품구색추천</h4>
+							<h4>월간 인기상품 TOP50</h4>
+							<!-- product_tail_content -->
+							<div class="product_tail_content">
+								<div class="product_tail_title_rows">
+									<p class="product_tail_title">진라면 순한맛</p>
+									<div class="product_subtext_list_wrap">
+										<ul class="product_subtext_list">
+											<li><span class="product_subtext color_org">바코드번호 : 025616042145</span></li>
+											<li><span class="product_subtext">상품분류코드 : 01210301</span></li>
+										</ul>
+									</div>
+									<div class="product_tab_list_wrap">
+										<ul class="boxtab_list">
+											<li class="active"><a href="#" class="boxtab">상품 정보</a></li>
+											<li><a href="#" class="boxtab">월간동향</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="product_tail_content_rows">
+									<div class="product_img_cols"><img src="../images/new/temp_img_312x312.png" alt=""></div>
+									<div class="product_spec_cols">
+										<ul class="dot_spec_list">
+											<li>
+												<span class="dot_spec_title">상품명 (국문)</span>
+												<div class="dot_spec_cont">
+													<p class="product_spec_para">진라면 순한맛</p>
+												</div>
+											</li>
+											<li>
+												<span class="dot_spec_title">회사정보</span>
+												<div class="dot_spec_cont">
+													<p class="product_spec_para">[판매] ㈜ 오뚜기 경기 안양시 동안구 평촌동 160-4<br>[제조/생산] 오뚜기라면 주식회사 경기 평택시 안중읍 용성리 123-14</p>
+												</div>
+											</li>
+											<li>
+												<span class="dot_spec_title">순중량 (NetWeight)</span>
+												<div class="dot_spec_cont">
+													<p class="product_spec_para">600g</p>
+												</div>
+											</li>
+											<li>
+												<span class="dot_spec_title">상품형태</span>
+												<div class="dot_spec_cont">
+													<p class="product_spec_para">기타유형</p>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="product_guide_list_wrap">
+									<ul class="product_guide_list">
+										<li>
+											<div class="pg_label_cols"><span class="pg_ico_label ico_01"><span class="pg_ico_label_text">상품분류</span></span></div>
+											<div class="pg_content_cols">
+												<p class="product_spec_para">가공식품 > 즉석/편의식품 > 라면류 > 봉지라면</p>
+											</div>
+										</li>
+										<li>
+											<div class="pg_label_cols"><span class="pg_ico_label ico_02"><span class="pg_ico_label_text">브랜드</span></span></div>
+											<div class="pg_content_cols">
+												<p class="product_spec_para">오뚜기</p>
+											</div>
+										</li>
+										<li>
+											<div class="pg_label_cols"><span class="pg_ico_label ico_03"><span class="pg_ico_label_text">국가정보</span></span></div>
+											<div class="pg_content_cols">
+												<p class="product_spec_para">[원산지] 대한민국(국산)</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<!-- // product_tail_content -->
 							<!-- chart list -->
 							<div class="chartList">
 								<!-- top -->

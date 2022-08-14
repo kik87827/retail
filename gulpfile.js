@@ -34,5 +34,5 @@ gulp.task('webserver',function(){
 });
 
 gulp.task('watch', function () {
-	gulp.watch(['./src/*/**.html', './src/*/**.html'], ["fileinclude"]);
+	gulp.watch(['./src/*/**.html', './src/**.html'], ["fileinclude"]);
 });

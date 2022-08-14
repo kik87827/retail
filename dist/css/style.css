@@ -2,6 +2,48 @@
 
 /* common */
 .hdtext{display:inline-block;width:0;height:0;overflow:hidden;line-height:0;color:transparent;position:absolute;top:0;left:-99999px;}
+.topText span, .dotList span {color:#f16333; font-weight: initial; font-size: small; margin-left: 10px}
+.emptext{font-weight:600 !important;}
+.underline{text-decoration: underline !important;}
+.color_org{color:#f16333 !important;}
+.color_blue{color:#3574c4 !important;}
+.sizeSgmt, .recommendPoint {text-align: center}
+.dashList.type2{letter-spacing: -0.5px;}
+ul.dotList.type2 > li{margin-bottom:10px;}
+ul.dotList.type2 > li:last-of-type{margin-bottom:0 !important;}
+ul.dotList.type2 li:after{top:13px;}
+.mt30{margin-top:30px !important}
+.mt65{margin-top:65px !important}
+.mb65{margin-bottom:65px !important}
+.flex_item{display:flex;}
+.flex_item.break{flex-wrap:wrap;}
+.flex_layout{display:flex;}
+.flex_layout.break{flex-wrap:wrap;}
+.flex_item.align_right{justify-content: flex-end;}
+.flex_layout.align_right{justify-content: flex-end;}
+.flex_long{flex:1;}
+.flex_short{flex:0;}
+.flex_inobj{}
+.flex_inobj .vitem_title_wrap{}
+.flex_inobj .vitem_content_wrap{}
+.inline_flex{display:flex;}
+.inline_item{}
+input.input_calender{}
+.inline_else_text{}
+.btn_bottom_wrap{}
+.btn_quad_obj{}
+.vertical_item_wrap{}
+.vertical_item{}
+.vertical_item .flex_inobj{}
+.vertical_item:last-of-type{}
+.vitem_title_wrap{}
+.vitem_title_wrap h4{}
+.vitem_content_wrap{}
+.vitem_content_wrap .dot_text_list{}
+.dot_text_list{}
+.dot_text_list > li{}
+.dot_text_list > li:before{}
+.dot_text_list.type2 > li:before{}
 /* // common */
 
 /* main */
@@ -59,6 +101,9 @@
 .mc_data_cols{}
 .mc_data_cols.define_list{}
 .mc_data_cols.define_chart{}
+.swiper-container.mc_rank_container{}
+.swiper-container.mc_rank_container .swiper-wrapper{}
+.swiper-container.mc_rank_container .swiper-slide{}
 .mc_data_list{}
 .mc_data_tr{}
 .mc_data_cells{}
@@ -129,3 +174,111 @@
 .quick_word{}
 .quick_word:after{}
 /* // main */
+
+/* sub */
+.author_item{}
+.key_text{}
+.author_item .flex_item{}
+.author_item .flex_item:last-of-type{}
+.author_item.flex_layout .flex_item{}
+.author_list{}
+.author_list > li{}
+.author_list > li:after{}
+.author_list > li:last-of-type{}
+.author_list > li:last-of-type:after{}
+.author_obj{}
+.author_obj_text{}
+.author_obj[class*="ico_"]:before{}
+.author_obj.ico_01:before{}
+.author_obj.ico_02:before{}
+.search_field_form_group{}
+.search_field_form{}
+.search_field_input_wrap{}
+input.search_field_input{}
+.btn_search_submit{}
+.btn_search_submit:before{}
+.btn_search_submit_text{}
+.auto_word_layer{}
+.auto_word_list{}
+.auto_word_list > li{}
+.auto_word_list > li:last-of-type{}
+.auto_word_item{}
+.auto_word_item .flex_long{}
+.auto_word_item .flex_short{}
+.search_field_form_group{}
+.auto_word_obj{}
+.auto_word_control{}
+.keyword_item{}
+.keyword_item .flex_short{}
+.keyword_item .flex_long{}
+.keyword_label{}
+.keyword_obj_list{}
+.keyword_obj_list > li{}
+.keyword_obj_list > li:last-of-type{}
+.keyword_obj{}
+.current_keyword_item{}
+.current_keyword_list{}
+.current_keyword_list > li{}
+.current_keyword_list > li:last-of-type{}
+.current_keyword{}
+.current_keyword:before{}
+.current_keyword:after{}
+.current_keyword_text{}
+.option_tail_item{}
+.option_tail_title{}
+.option_tail_title h4{}
+.option_tail_form{}
+.option_tail_list{}
+.option_tail_list > li{}
+.option_tail_list > li:last-of-type{}
+.option_label_cell{}
+.option_label{}
+.option_label:before{}
+.option_form_cell{}
+.option_initem_wrap{}
+.option_initem{}
+.option_initem .inline_flex{}
+.sort_box_wrap{}
+.sort_box{}
+.sort_box.active{}
+.sort_box:last-of-type{}
+.product_tail_content{}
+.product_tail_title_rows{}
+.product_tail_title{}
+.product_subtext_list_wrap{}
+.product_subtext_list{}
+.product_subtext_list > li{}
+.product_subtext_list > li:after{}
+.product_subtext_list > li:last-of-type{}
+.product_subtext_list > li:last-of-type:after{}
+.product_subtext{}
+.product_tab_list_wrap{}
+.boxtab_list{}
+.boxtab_list > li{}
+.boxtab_list > li.active{}
+.boxtab_list > li.active .boxtab{}
+.boxtab_list > li:last-of-type{}
+.product_tail_content_rows{}
+.product_img_cols{}
+.product_img_cols > img{}
+.product_spec_cols{}
+.dot_spec_list{}
+.dot_spec_list > li{}
+.dot_spec_list > li:last-of-type{}
+.dot_spec_title{}
+.dot_spec_cont{}
+.product_spec_para{}
+.product_guide_list_wrap{}
+.product_guide_list{}
+.product_guide_list > li{}
+.product_guide_list > li:last-of-type{}
+.pg_label_cols{}
+.pg_ico_label{}
+.pg_ico_label[class*="ico_"]:before{}
+.pg_ico_label_text{}
+.pg_ico_label.ico_01:before{}
+.pg_ico_label.ico_02:before{}
+.pg_ico_label.ico_03:before{}
+.pg_content_cols{}
+.product_spec_para{}
+/* // sub */

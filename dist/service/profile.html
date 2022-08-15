@@ -42,6 +42,7 @@
 	<script src="/js/jquery.flexslider-min.js"></script>
 	<script src="/js/style.js"></script>
 	<script src="/js/util.js"></script>
+	<script src="/js/ui.js"></script><!-- js 추가  -->
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 
 
@@ -339,7 +340,268 @@
 				<div class="bodyContent">
 					<!-- contents -->
 					<div id="contents" class="serviceAttribute">
-						내용
+						<!-- top surmmary -->
+						<div class="topSummary lineBox">
+							<div class="boxBg">
+								<div class="indentCon">
+									<p class="icon"><img src="../images/common/icon_circle_popular_notice.png" alt="주요공지"></p>
+									<p class="topText">본 서비스는 ㈜리테일앤인사이트에서 제공하는 분석자료를 바탕으로 운영됩니다.</p>
+									<ul class="dotList type2">
+										<li>
+											매장 프로파일별 매출 분석
+											<ul class="dashList">
+												<li>선택한 속성(지역(시/도, 시/군/구), 매장 크기, 영업 시간)에 따라 결과 출력</li>
+												<li>속성 선택의 경우 선택이 필수 항목이 아니며, 선택한 항목이 없는 속성은 전체로 취급하여 조회</li>
+												<li>결과: 리테일앤인사이트에서 집계해 속성(지역, 매장 크기, 영업 시간), 매출 규모, 카테고리별 매출 비중으로 칼럼을 구성한 자료</li>
+											</ul>
+										</li>
+									</ul>
+									<div class="author_item flex_layout align_right">
+										<div class="flex_item">
+											<p class="key_text">중소매장 매출 분석 관련 상세문의 :</p>
+										</div>
+										<div class="flex_item">
+											<ul class="author_list">
+												<li><span class="author_obj ico_01"><span class="author_obj_text">리테일앤인사이트</span></span></li>
+												<li><span class="author_obj ico_02"><span class="author_obj_text">jhseong@businessinsight.co.kr</span></span></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- // top surmmary -->
+						<div class="option_tail_list_wrap">
+							<ul class="option_tail_list">
+								<li>
+									<div class="option_label_cell"><span class="option_label">지역</span></div>
+									<div class="option_form_cell">
+										<ul class="keyform_list">
+											<li>
+												<div class="keyform_item">
+													<span class="key_cols"><span class="key_label">시/도</span></span>
+													<div class="form_cols">
+														<div class="dropMenu mintype2">
+															<p class="title"><span>전체</span></p>
+															<ul>
+																<li><a href="#"><span>서울특별시</span></a></li>
+																<li><a href="#"><span>경기도</span></a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="keyform_item">
+													<span class="key_cols"><span class="key_label">시/군/구</span></span>
+													<div class="form_cols">
+														<div class="dropMenu mintype2">
+															<p class="title"><span>전체</span></p>
+															<ul>
+																<li><a href="#"><span>강남구</span></a></li>
+																<li><a href="#"><span>강동구</span></a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li>
+									<div class="option_label_cell"><span class="option_label">매장 크기</span></div>
+									<div class="option_form_cell">
+										<div class="option_initem_wrap flex_layout break">
+											<div class="option_initem">
+												<div class="sort_box_wrap">
+													<a href="javascript:;" class="sort_box active">전체</a>
+													<a href="javascript:;" class="sort_box">~50평</a>
+													<a href="javascript:;" class="sort_box">~200평</a>
+													<a href="javascript:;" class="sort_box">~400평</a>
+													<a href="javascript:;" class="sort_box">~600평</a>
+													<a href="javascript:;" class="sort_box">~1000평</a>
+													<a href="javascript:;" class="sort_box">1000평~</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="option_label_cell"><span class="option_label">영업 시간</span></div>
+									<div class="option_form_cell">
+										<div class="option_initem_wrap flex_layout break">
+											<div class="option_initem">
+												<div class="sort_box_wrap">
+													<a href="javascript:;" class="sort_box active">전체</a>
+													<a href="javascript:;" class="sort_box">9시간 이하</a>
+													<a href="javascript:;" class="sort_box">12시간 이하</a>
+													<a href="javascript:;" class="sort_box">14시간 이하</a>
+													<a href="javascript:;" class="sort_box">16시간 이하</a>
+													<a href="javascript:;" class="sort_box">20시간 이하</a>
+													<a href="javascript:;" class="sort_box">상시 오픈</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li class="type2">
+									<div class="option_label_cell">
+										<a href="#" class="btn_text_control ico_refresh"><span class="btn_text_control_in">전체해제</span></a>
+									</div>
+									<div class="option_form_cell">
+										<ul class="btn_text_obj_list">
+											<li><a href="#" class="btn_text_obj">600평</a></li>
+											<li><a href="#" class="btn_text_obj">9시간 이하</a></li>
+											<li><a href="#" class="btn_text_obj">12시간 이하</a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="btn_bottom_wrap">
+							<a href="#" class="btn_quad_obj">조회</a>
+						</div>
+
+						<div class="flex_layout align_both mb15 mt55">
+							<div class="flex_item">
+								<div class="data_count_item">
+									<span class="data_count_label">전체</span>
+									<span class="data_count_value">
+										<span class="data_count_current">900</span>
+										<span class="data_count_length">건</span>
+									</span>
+								</div>
+							</div>
+							<div class="flex_item">
+								<div class="keyitem_flex">
+									<span class="keyitem_label_cols"><span class="ico_current_data ico_down">44</span></span>
+									<span class="keyitem_btn_cols"><a href="#" class="btn_boxtext ico_down"><span class="btn_boxtext_in">엑셀 내려받기</span></a></span>
+								</div>
+							</div>
+						</div>
+						<div class="table_scroll_both">
+							<div class="table_fixed_zone">
+								<div class="data_list_table_wrap">
+									<table class="data_list_table">
+										<colgroup>
+											<col />
+											<col style="width:20%" />
+											<col style="width:20%" />
+											<col style="width:22%" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th><span class="data_list_thtext">지역</span></th>
+												<th><span class="data_list_thtext">매장 크기</span></th>
+												<th><span class="data_list_thtext">영업 시간</span></th>
+												<th><span class="data_list_thtext">매출 규모(월)</span></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td><span class="data_list_tdtext">서울특별시 강남구</span></td>
+												<td><span class="data_list_tdtext type2">30평대</span></td>
+												<td><span class="data_list_tdtext">12시간 이하</span></td>
+												<td><span class="data_list_tdtext">20,000,000</span></td>
+											</tr>
+											<tr>
+												<td><span class="data_list_tdtext">서울특별시 강남구</span></td>
+												<td><span class="data_list_tdtext type2">30평대</span></td>
+												<td><span class="data_list_tdtext">12시간 이하</span></td>
+												<td><span class="data_list_tdtext">20,000,000</span></td>
+											</tr>
+											<tr>
+												<td><span class="data_list_tdtext">서울특별시 강남구</span></td>
+												<td><span class="data_list_tdtext type2">30평대</span></td>
+												<td><span class="data_list_tdtext">12시간 이하</span></td>
+												<td><span class="data_list_tdtext">20,000,000</span></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="table_scroll_zone">
+								<div class="data_list_table_wrap">
+									<table class="data_list_table">
+										<thead>
+											<tr>
+												<th><span class="data_list_thtext">카테고리1</span></th>
+												<th><span class="data_list_thtext">카테고리2</span></th>
+												<th><span class="data_list_thtext">카테고리3</span></th>
+												<th><span class="data_list_thtext">카테고리4</span></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td><span class="data_list_tdtext">56%</span></td>
+												<td><span class="data_list_tdtext">24%</span></td>
+												<td><span class="data_list_tdtext">24%</span></td>
+												<td><span class="data_list_tdtext">24%</span></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="data_result_table_wrap">
+							<div class="data_result_fixed_cols">
+								<table class="data_result_table">
+									<colgroup>
+										<col />
+										<col style="width:20%" />
+										<col style="width:20%" />
+										<col style="width:22%" />
+									</colgroup>
+									<tbody>
+										<tr>
+											<td rowspan="2" colspan="2">
+												<p class="data_result_label">TOTAL</p>
+											</td>
+											<td>
+												<p class="data_result_label">총합</p>
+											</td>
+											<td>
+												<p class="data_result_value">000,000,000,000</p>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<p class="data_result_label">평균</p>
+											</td>
+											<td>
+												<p class="data_result_value">000,000,000,000</p>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<br><br>
+
+						<div class="flex_layout align_both mb15 mt55">
+							<div class="flex_item">
+								<div class="data_count_item">
+									<span class="data_count_label">전체</span>
+									<span class="data_count_value">
+										<span class="data_count_current">900</span>
+										<span class="data_count_length">건</span>
+									</span>
+								</div>
+							</div>
+							<div class="flex_item">
+								<div class="keyitem_flex">
+									<span class="keyitem_label_cols"><span class="ico_current_data ico_down">44</span></span>
+									<span class="keyitem_btn_cols"><a href="#" class="btn_boxtext ico_down"><span class="btn_boxtext_in">엑셀 내려받기</span></a></span>
+								</div>
+							</div>
+						</div>
+						<div class="table_scroll_both">
+							<div class="nodata_text_fxwrap">
+								<p class="nodata_text has_ico"><span class="nodata_text_in">조건을 만족하는 결과가 없습니다.</span></p>
+							</div>
+						</div>
+
 					</div>
 					<!-- //contents -->
 				</div>

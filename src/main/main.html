@@ -60,10 +60,10 @@
 										<li><a href="#data_item03" class="mc_text_tab">상품구색</a></li>
 									</ul>
 									<div class="mc_lineage_tabcont_group">
-										<div class="mc_data_both active" id="data_item01">
-											<div clsa="mc_data_cols define_list">
+										<div class="mc_data_both">
+											<div class="mc_data_cols define_list">
 												<!-- rank swiper -->
-												<div class="swiper-container mc_rank_container" id="rank_offline_swiper">
+												<div class="swiper-container mc_popular_container">
 													<div class="swiper-wrapper">
 														<div class="swiper-slide">
 															<div class="mc_data_list">
@@ -186,280 +186,13 @@
 													</div>
 												</div>
 												<!-- rank swiper -->
+												<script>
+													popularRankFunc(); // 자동롤링 호출
+												</script>
 											</div>
-											<div clsa="mc_data_cols define_chart">
+											<div class="mc_data_cols define_chart">
 												<!-- chart -->
-												<div style="display:flex;align-items:center;justify-content:center;">
-													chart
-												</div>
-												<!-- // chart -->
-											</div>
-										</div>
-										<div class="mc_data_both" id="data_item02">
-											<div clsa="mc_data_cols define_list">
-												<!-- rank swiper -->
-												<div class="swiper-container mc_rank_container" id="rank_online_swiper">
-													<div class="swiper-wrapper">
-														<div class="swiper-slide">
-															<div class="mc_data_list">
-																<a href="#" class="mc_data_tr active">
-																	<div class="mc_data_cells define_rank">
-																		<span class="mc_data_rank_wrap">
-																			<span class="mc_data_rank">1</span>
-																			<span class="mc_data_current">-</span>
-																		</span>
-																	</div>
-																	<div class="mc_data_cells define_code"><span class="mc_data_text">8808244101079</span></div>
-																	<div class="mc_data_cells define_title"><span class="mc_data_text">제주 삼다수 2L</span></div>
-																	<div class="mc_data_cells define_company"><span class="mc_data_text type2">광동제약</span></div>
-																</a>
-																<a href="#" class="mc_data_tr">
-																	<div class="mc_data_cells define_rank">
-																		<span class="mc_data_rank_wrap">
-																			<span class="mc_data_rank">2</span>
-																			<span class="mc_data_current">-</span>
-																		</span>
-																	</div>
-																	<div class="mc_data_cells define_code"><span class="mc_data_text">8808244201045</span></div>
-																	<div class="mc_data_cells define_title"><span class="mc_data_text">제주 삼다수 2L*6</span></div>
-																	<div class="mc_data_cells define_company"><span class="mc_data_text type2">광동제약</span></div>
-																</a>
-																<a href="#" class="mc_data_tr">
-																	<div class="mc_data_cells define_rank">
-																		<span class="mc_data_rank_wrap">
-																			<span class="mc_data_rank">3</span>
-																			<span class="mc_data_current">-</span>
-																		</span>
-																	</div>
-																	<div class="mc_data_cells define_code"><span class="mc_data_text">8808244208044</span></div>
-																	<div class="mc_data_cells define_title"><span class="mc_data_text">제주 삼다수 500ml</span></div>
-																	<div class="mc_data_cells define_company"><span class="mc_data_text type2">광동제약</span></div>
-																</a>
-																<a href="#" class="mc_data_tr">
-																	<div class="mc_data_cells define_rank">
-																		<span class="mc_data_rank_wrap">
-																			<span class="mc_data_rank">4</span>
-																			<span class="mc_data_current down">2</span>
-																		</span>
-																	</div>
-																	<div class="mc_data_cells define_code"><span class="mc_data_text">8808244201014</span></div>
-																	<div class="mc_data_cells define_title"><span class="mc_data_text">제주 삼다수 500ml*20</span></div>
-																	<div class="mc_data_cells define_company"><span class="mc_data_text type2">광동제약</span></div>
-																</a>
-																<a href="#" class="mc_data_tr">
-																	<div class="mc_data_cells define_rank">
-																		<span class="mc_data_rank_wrap">
-																			<span class="mc_data_rank">5</span>
-																			<span class="mc_data_current up">4</span>
-																		</span>
-																	</div>
-																	<div class="mc_data_cells define_code"><span class="mc_data_text">8808244101086</span></div>
-																	<div class="mc_data_cells define_title"><span class="mc_data_text">해태 강원평창수 2L*6</span></div>
-																	<div class="mc_data_cells define_company"><span class="mc_data_text type2">해태에이스에이스</span></div>
-																</a>
-															</div>
-														</div>
-														<div class="swiper-slide">
-															<div class="mc_data_list">
-																<a href="#" class="mc_data_tr">
-																	<div class="mc_data_cells define_rank">
-																		<span class="mc_data_rank_wrap">
-																			<span class="mc_data_rank">6</span>
-																			<span class="mc_data_current">-</span>
-																		</span>
-																	</div>
-																	<div class="mc_data_cells define_code"><span class="mc_data_text">8808244101079</span></div>
-																	<div class="mc_data_cells define_title"><span class="mc_data_text">제주 삼다수 2L</span></div>
-																	<div class="mc_data_cells define_company"><span class="mc_data_text type2">광동제약</span></div>
-																</a>
-																<a href="#" class="mc_data_tr">
-																	<div class="mc_data_cells define_rank">
-																		<span class="mc_data_rank_wrap">
-																			<span class="mc_data_rank">7</span>
-																			<span class="mc_data_current">-</span>
-																		</span>
-																	</div>
-																	<div class="mc_data_cells define_code"><span class="mc_data_text">8808244201045</span></div>
-																	<div class="mc_data_cells define_title"><span class="mc_data_text">제주 삼다수 2L*6</span></div>
-																	<div class="mc_data_cells define_company"><span class="mc_data_text type2">광동제약</span></div>
-																</a>
-																<a href="#" class="mc_data_tr">
-																	<div class="mc_data_cells define_rank">
-																		<span class="mc_data_rank_wrap">
-																			<span class="mc_data_rank">8</span>
-																			<span class="mc_data_current">-</span>
-																		</span>
-																	</div>
-																	<div class="mc_data_cells define_code"><span class="mc_data_text">8808244208044</span></div>
-																	<div class="mc_data_cells define_title"><span class="mc_data_text">제주 삼다수 500ml</span></div>
-																	<div class="mc_data_cells define_company"><span class="mc_data_text type2">광동제약</span></div>
-																</a>
-																<a href="#" class="mc_data_tr">
-																	<div class="mc_data_cells define_rank">
-																		<span class="mc_data_rank_wrap">
-																			<span class="mc_data_rank">9</span>
-																			<span class="mc_data_current down">2</span>
-																		</span>
-																	</div>
-																	<div class="mc_data_cells define_code"><span class="mc_data_text">8808244201014</span></div>
-																	<div class="mc_data_cells define_title"><span class="mc_data_text">제주 삼다수 500ml*20</span></div>
-																	<div class="mc_data_cells define_company"><span class="mc_data_text type2">광동제약</span></div>
-																</a>
-																<a href="#" class="mc_data_tr">
-																	<div class="mc_data_cells define_rank">
-																		<span class="mc_data_rank_wrap">
-																			<span class="mc_data_rank">10</span>
-																			<span class="mc_data_current up">4</span>
-																		</span>
-																	</div>
-																	<div class="mc_data_cells define_code"><span class="mc_data_text">8808244101086</span></div>
-																	<div class="mc_data_cells define_title"><span class="mc_data_text">해태 강원평창수 2L*6</span></div>
-																	<div class="mc_data_cells define_company"><span class="mc_data_text type2">해태에이스에이스</span></div>
-																</a>
-															</div>
-														</div>
-													</div>
-												</div>
-												<!-- rank swiper -->
-											</div>
-											<div clsa="mc_data_cols define_chart">
-												<!-- chart -->
-												<div style="display:flex;align-items:center;justify-content:center;">
-													chart
-												</div>
-												<!-- // chart -->
-											</div>
-										</div>
-										<div class="mc_data_both" id="data_item03">
-											<div clsa="mc_data_cols define_list">
-												<!-- rank swiper -->
-												<div class="swiper-container mc_rank_container" id="rank_assort_swiper">
-													<div class="swiper-wrapper">
-														<div class="swiper-slide">
-															<div class="mc_data_list">
-																<a href="#" class="mc_data_tr active">
-																	<div class="mc_data_cells define_rank">
-																		<span class="mc_data_rank_wrap">
-																			<span class="mc_data_rank">1</span>
-																			<span class="mc_data_current">-</span>
-																		</span>
-																	</div>
-																	<div class="mc_data_cells define_code"><span class="mc_data_text">8808244101079</span></div>
-																	<div class="mc_data_cells define_title"><span class="mc_data_text">제주 삼다수 2L</span></div>
-																	<div class="mc_data_cells define_company"><span class="mc_data_text type2">광동제약</span></div>
-																</a>
-																<a href="#" class="mc_data_tr">
-																	<div class="mc_data_cells define_rank">
-																		<span class="mc_data_rank_wrap">
-																			<span class="mc_data_rank">2</span>
-																			<span class="mc_data_current">-</span>
-																		</span>
-																	</div>
-																	<div class="mc_data_cells define_code"><span class="mc_data_text">8808244201045</span></div>
-																	<div class="mc_data_cells define_title"><span class="mc_data_text">제주 삼다수 2L*6</span></div>
-																	<div class="mc_data_cells define_company"><span class="mc_data_text type2">광동제약</span></div>
-																</a>
-																<a href="#" class="mc_data_tr">
-																	<div class="mc_data_cells define_rank">
-																		<span class="mc_data_rank_wrap">
-																			<span class="mc_data_rank">3</span>
-																			<span class="mc_data_current">-</span>
-																		</span>
-																	</div>
-																	<div class="mc_data_cells define_code"><span class="mc_data_text">8808244208044</span></div>
-																	<div class="mc_data_cells define_title"><span class="mc_data_text">제주 삼다수 500ml</span></div>
-																	<div class="mc_data_cells define_company"><span class="mc_data_text type2">광동제약</span></div>
-																</a>
-																<a href="#" class="mc_data_tr">
-																	<div class="mc_data_cells define_rank">
-																		<span class="mc_data_rank_wrap">
-																			<span class="mc_data_rank">4</span>
-																			<span class="mc_data_current down">2</span>
-																		</span>
-																	</div>
-																	<div class="mc_data_cells define_code"><span class="mc_data_text">8808244201014</span></div>
-																	<div class="mc_data_cells define_title"><span class="mc_data_text">제주 삼다수 500ml*20</span></div>
-																	<div class="mc_data_cells define_company"><span class="mc_data_text type2">광동제약</span></div>
-																</a>
-																<a href="#" class="mc_data_tr">
-																	<div class="mc_data_cells define_rank">
-																		<span class="mc_data_rank_wrap">
-																			<span class="mc_data_rank">5</span>
-																			<span class="mc_data_current up">4</span>
-																		</span>
-																	</div>
-																	<div class="mc_data_cells define_code"><span class="mc_data_text">8808244101086</span></div>
-																	<div class="mc_data_cells define_title"><span class="mc_data_text">해태 강원평창수 2L*6</span></div>
-																	<div class="mc_data_cells define_company"><span class="mc_data_text type2">해태에이스에이스</span></div>
-																</a>
-															</div>
-														</div>
-														<div class="swiper-slide">
-															<div class="mc_data_list">
-																<a href="#" class="mc_data_tr">
-																	<div class="mc_data_cells define_rank">
-																		<span class="mc_data_rank_wrap">
-																			<span class="mc_data_rank">6</span>
-																			<span class="mc_data_current">-</span>
-																		</span>
-																	</div>
-																	<div class="mc_data_cells define_code"><span class="mc_data_text">8808244101079</span></div>
-																	<div class="mc_data_cells define_title"><span class="mc_data_text">제주 삼다수 2L</span></div>
-																	<div class="mc_data_cells define_company"><span class="mc_data_text type2">광동제약</span></div>
-																</a>
-																<a href="#" class="mc_data_tr">
-																	<div class="mc_data_cells define_rank">
-																		<span class="mc_data_rank_wrap">
-																			<span class="mc_data_rank">7</span>
-																			<span class="mc_data_current">-</span>
-																		</span>
-																	</div>
-																	<div class="mc_data_cells define_code"><span class="mc_data_text">8808244201045</span></div>
-																	<div class="mc_data_cells define_title"><span class="mc_data_text">제주 삼다수 2L*6</span></div>
-																	<div class="mc_data_cells define_company"><span class="mc_data_text type2">광동제약</span></div>
-																</a>
-																<a href="#" class="mc_data_tr">
-																	<div class="mc_data_cells define_rank">
-																		<span class="mc_data_rank_wrap">
-																			<span class="mc_data_rank">8</span>
-																			<span class="mc_data_current">-</span>
-																		</span>
-																	</div>
-																	<div class="mc_data_cells define_code"><span class="mc_data_text">8808244208044</span></div>
-																	<div class="mc_data_cells define_title"><span class="mc_data_text">제주 삼다수 500ml</span></div>
-																	<div class="mc_data_cells define_company"><span class="mc_data_text type2">광동제약</span></div>
-																</a>
-																<a href="#" class="mc_data_tr">
-																	<div class="mc_data_cells define_rank">
-																		<span class="mc_data_rank_wrap">
-																			<span class="mc_data_rank">9</span>
-																			<span class="mc_data_current down">2</span>
-																		</span>
-																	</div>
-																	<div class="mc_data_cells define_code"><span class="mc_data_text">8808244201014</span></div>
-																	<div class="mc_data_cells define_title"><span class="mc_data_text">제주 삼다수 500ml*20</span></div>
-																	<div class="mc_data_cells define_company"><span class="mc_data_text type2">광동제약</span></div>
-																</a>
-																<a href="#" class="mc_data_tr">
-																	<div class="mc_data_cells define_rank">
-																		<span class="mc_data_rank_wrap">
-																			<span class="mc_data_rank">10</span>
-																			<span class="mc_data_current up">4</span>
-																		</span>
-																	</div>
-																	<div class="mc_data_cells define_code"><span class="mc_data_text">8808244101086</span></div>
-																	<div class="mc_data_cells define_title"><span class="mc_data_text">해태 강원평창수 2L*6</span></div>
-																	<div class="mc_data_cells define_company"><span class="mc_data_text type2">해태에이스에이스</span></div>
-																</a>
-															</div>
-														</div>
-													</div>
-												</div>
-												<!-- rank swiper -->
-											</div>
-											<div clsa="mc_data_cols define_chart">
-												<!-- chart -->
-												<div style="display:flex;align-items:center;justify-content:center;">
+												<div style="display:flex;align-items:center;justify-content:center;height:100%;background:#ddd;">
 													chart
 												</div>
 												<!-- // chart -->
@@ -484,9 +217,9 @@
 								</div>
 								<div class="mc_linkage_box">
 									<div class="mc_data_both">
-										<div clsa="mc_data_cols define_list">
+										<div class="mc_data_cols define_list">
 											<!-- rank swiper -->
-											<div class="swiper-container mc_rank_container" id="rank_trend_swiper">
+											<div class="swiper-container mc_consumer_container">
 												<div class="swiper-wrapper">
 													<div class="swiper-slide">
 														<div class="mc_data_list">
@@ -589,10 +322,13 @@
 												</div>
 											</div>
 											<!-- // rank swiper -->
+											<script>
+												consumerRankFunc(); // 자동롤링 호출
+											</script>
 										</div>
-										<div clsa="mc_data_cols define_chart">
+										<div class="mc_data_cols define_chart">
 											<!-- chart -->
-											<div style="display:flex;align-items:center;justify-content:center;">
+											<div style="display:flex;align-items:center;justify-content:center;height:100%;background:#ddd;">
 												chart
 											</div>
 											<!-- // chart -->
@@ -607,7 +343,7 @@
 						<div class="swiper-container mc_banner_container">
 							<div class="swiper-wrapper">
 								<div class="swiper-slide">
-									<a href="#" class="mc_banner">
+									<a href="#" class="mc_banner" style="background-image:url(/images/new/img_main_edu.jpg);">
 										<div class="mc_banner_pixin">
 											<div class="mc_banner_main">데이터 교육</div>
 											<div class="mc_banner_sub">데이터 중심으로 다변하는 사업 생태계에서 경쟁력 높이기</div>
@@ -615,7 +351,7 @@
 									</a>
 								</div>
 								<div class="swiper-slide">
-									<a href="#" class="mc_banner">
+									<a href="#" class="mc_banner" style="background-image:url(/images/new/img_main_edu_test2.jpg);">
 										<div class="mc_banner_pixin">
 											<div class="mc_banner_main">데이터 교육2</div>
 											<div class="mc_banner_sub">데이터 중심으로 다변하는 사업 생태계에서 경쟁력 높이기</div>
@@ -623,7 +359,7 @@
 									</a>
 								</div>
 								<div class="swiper-slide">
-									<a href="#" class="mc_banner">
+									<a href="#" class="mc_banner" style="background-image:url(/images/new/img_main_edu_test3.jpg);">
 										<div class="mc_banner_pixin">
 											<div class="mc_banner_main">데이터 교육3</div>
 											<div class="mc_banner_sub">데이터 중심으로 다변하는 사업 생태계에서 경쟁력 높이기</div>

@@ -477,7 +477,7 @@
 											</div>
 											<div class="mc_data_cols define_chart">
 												<!-- chart -->
-												<div style="display:flex;align-items:center;justify-content:center;height:100%;background:#ddd;">
+												<div style="display:flex;align-items:center;justify-content:center;height:270px;background:#ddd;width:100%;">
 													chart
 												</div>
 												<!-- // chart -->
@@ -613,7 +613,7 @@
 										</div>
 										<div class="mc_data_cols define_chart">
 											<!-- chart -->
-											<div style="display:flex;align-items:center;justify-content:center;height:100%;background:#ddd;">
+											<div style="display:flex;align-items:center;justify-content:center;height:270px;background:#ddd;width:100%;">
 												chart
 											</div>
 											<!-- // chart -->
@@ -624,7 +624,7 @@
 						</div>
 					</div>
 					<div class="mc_banner_wrap">
-						<div class="mc_control_layer"><a href="#" class="btn_banner_control prev"><span class="hdtext">이전</span></a></div>
+						<div class="mc_control_layer"><a href="javascript:;" class="btn_banner_control prev"><span class="hdtext">이전</span></a></div>
 						<div class="swiper-container mc_banner_container">
 							<div class="swiper-wrapper">
 								<div class="swiper-slide">
@@ -652,10 +652,15 @@
 									</a>
 								</div>
 							</div>
+							<div class="swiper-pagination"></div>
 						</div>
-						<div class="mc_control_layer"><a href="#" class="btn_banner_control next"><span class="hdtext">다음</span></a></div>
+						<div class="mc_control_layer"><a href="javascript:;" class="btn_banner_control next"><span class="hdtext">다음</span></a></div>
+						<script>
+							mcbannerFunc(); // 롤링
+						</script>
 					</div>
 					<div class="mc_board_obj_wrap">
+						<div class="left_bg"></div>
 						<div class="mc_max_pix">
 							<div class="mc_board_title_wrap">
 								<h3 class="mc_board_title">소식</h3>
@@ -707,7 +712,7 @@
 												</li>
 											</ul>
 										</div>
-										<a href="#" class="btn_mcbmore"><span class="hdtext">공지사항/자료실 더보기</span></a>
+										<a href="#" class="btn_mcbmore"><span class="btn_mcbmore_in"><span class="hdtext">공지사항/자료실</span>더보기</span></a>
 									</div>
 									<div class="mc_board_box" id="board_item02">
 										<div class="mc_board_box_title_wrap">
@@ -747,7 +752,7 @@
 												</li>
 											</ul>
 										</div>
-										<a href="#" class="btn_mcbmore"><span class="hdtext">유통시장동향 레포트 더보기</span></a>
+										<a href="#" class="btn_mcbmore"><span class="btn_mcbmore_in"><span class="hdtext">유통시장동향 레포트</span>더보기</span></a>
 									</div>
 									<div class="mc_board_box" id="board_item03">
 										<div class="mc_board_box_title_wrap">
@@ -760,7 +765,7 @@
 												</li>
 											</ul>
 										</div>
-										<a href="#" class="btn_mcbmore"><span class="hdtext">FAQ 더보기</span></a>
+										<a href="#" class="btn_mcbmore"><span class="btn_mcbmore_in"><span class="hdtext">FAQ</span>더보기</span></a>
 									</div>
 								</div>
 							</div>

@@ -311,7 +311,6 @@ function scrollTableFunc(){
 		const x = e.pageX - table_scroll_zone.offsetLeft;
 		const walk = (x - startX) * 3; //scroll-fast
 		table_scroll_zone.scrollLeft = scrollLeft - walk;
-		console.log(walk);
 	});
 }
 

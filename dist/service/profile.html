@@ -41,6 +41,7 @@
 	<link rel="stylesheet" type="text/css" href="/css/style.css"> <!-- css 추가  -->
 	<script src="/js/jquery-1.8.3.min.js"></script>
 	<script src="/js/jquery.flexslider-min.js"></script>
+	<script src="/js/dynamicListener.min.js"></script><!-- js 추가  -->
 	<script src="/js/swiper.min.js"></script><!-- js 추가  -->
 	<script src="/js/style.js"></script>
 	<script src="/js/util.js"></script>
@@ -475,8 +476,8 @@
 								</div>
 							</div>
 							<div class="flex_item">
-								<div class="keyitem_flex">
-									<span class="keyitem_label_cols"><span class="ico_current_data ico_down">44</span></span>
+								<div class="keyitem_flex valign2">
+									<span class="keyitem_label_cols"><span class="ico_current_data">다운로드 수 : 44</span></span>
 									<span class="keyitem_btn_cols"><a href="#" class="btn_boxtext ico_down"><span class="btn_boxtext_in">엑셀 내려받기</span></a></span>
 								</div>
 							</div>
@@ -532,6 +533,7 @@
 												<th><span class="data_list_thtext">카테고리3</span></th>
 												<th><span class="data_list_thtext">카테고리4</span></th>
 												<th><span class="data_list_thtext">카테고리5</span></th>
+												<th><span class="data_list_thtext">카테고리6</span></th>
 											</tr>
 										</thead>
 										<tbody>
@@ -541,16 +543,19 @@
 												<td><span class="data_list_tdtext">24%</span></td>
 												<td><span class="data_list_tdtext">24%</span></td>
 												<td><span class="data_list_tdtext">24%</span></td>
-											</tr>
-											<tr>
-												<td><span class="data_list_tdtext">56%</span></td>
-												<td><span class="data_list_tdtext">24%</span></td>
-												<td><span class="data_list_tdtext">24%</span></td>
-												<td><span class="data_list_tdtext">24%</span></td>
 												<td><span class="data_list_tdtext">24%</span></td>
 											</tr>
 											<tr>
 												<td><span class="data_list_tdtext">56%</span></td>
+												<td><span class="data_list_tdtext">24%</span></td>
+												<td><span class="data_list_tdtext">24%</span></td>
+												<td><span class="data_list_tdtext">24%</span></td>
+												<td><span class="data_list_tdtext">24%</span></td>
+												<td><span class="data_list_tdtext">24%</span></td>
+											</tr>
+											<tr>
+												<td><span class="data_list_tdtext">56%</span></td>
+												<td><span class="data_list_tdtext">24%</span></td>
 												<td><span class="data_list_tdtext">24%</span></td>
 												<td><span class="data_list_tdtext">24%</span></td>
 												<td><span class="data_list_tdtext">24%</span></td>
@@ -572,27 +577,26 @@
 								<table class="data_result_table">
 									<colgroup>
 										<col />
-										<col style="width:25%" />
-										<col style="width:25%" />
-										<col style="width:25%" />
+										<col style="width:20%" />
+										<col style="width:20%" />
 									</colgroup>
 									<tbody>
 										<tr>
-											<td rowspan="2" colspan="2">
+											<td rowspan="2">
 												<p class="data_result_label">TOTAL</p>
 											</td>
-											<td>
+											<td class="align_right">
 												<p class="data_result_label">총합</p>
 											</td>
-											<td>
+											<td class="align_right">
 												<p class="data_result_value">000,000,000,000</p>
 											</td>
 										</tr>
 										<tr>
-											<td>
+											<td class="align_right">
 												<p class="data_result_label">평균</p>
 											</td>
-											<td>
+											<td class="align_right">
 												<p class="data_result_value">000,000,000,000</p>
 											</td>
 										</tr>
@@ -614,8 +618,8 @@
 								</div>
 							</div>
 							<div class="flex_item">
-								<div class="keyitem_flex">
-									<span class="keyitem_label_cols"><span class="ico_current_data ico_down">44</span></span>
+								<div class="keyitem_flex valign2">
+									<span class="keyitem_label_cols"><span class="ico_current_data">다운로드 수 : 44</span></span>
 									<span class="keyitem_btn_cols"><a href="#" class="btn_boxtext ico_down"><span class="btn_boxtext_in">엑셀 내려받기</span></a></span>
 								</div>
 							</div>

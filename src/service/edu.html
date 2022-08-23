@@ -72,13 +72,27 @@
 							</div>
 							<div class="list_sort_vitem">
 								<div class="boxtab_list_wrap">
-									<ul class="boxtab_list type2">
+									<ul class="boxtab_list type2" id="board_tab">
 										<li class="active"><a href="#" class="boxtab">전체</a></li>
 										<li><a href="#" class="boxtab">교육</a></li>
 										<li><a href="#" class="boxtab">행사</a></li>
 									</ul>
 								</div>
 							</div>
+							<script>
+								// 개발 전달용
+								document.querySelectorAll("#board_tab .boxtab").forEach((element)=> {
+									element.addEventListener("click", (e)=> {
+										let currentTarget = e.currentTarget;
+										let currentNot = siblings(currentTarget.closest("li"));
+										e.preventDefault();
+										currentNot.forEach((element) => {
+											element.classList.remove("active");
+										});
+										currentTarget.closest("li").classList.add("active");
+									},false);
+								});
+							</script>
 						</div>
 						<div class="thumnail_list_wrap">
 							<ul class="thumnail_list">
@@ -122,9 +136,9 @@
 												<img src="../images/new/noimg_190x230.png" alt="">
 											</div>
 											<div class="thumnail_spec_cols">
-												<div class="thumnail_main_title">온라인 커머스 플랫폼 종류별 특징과 트렌드</div>
+												<div class="thumnail_main_title">온라인 커머스 플랫폼 종류별 특징과 트렌드 온라인 커머스 플랫폼 종류별 특징과 트렌드온라인 커머스 플랫폼 종류별 특징과 트렌드온라인 커머스 플랫폼 종류별 특징과 트렌드</div>
 												<ul class="thumnail_main_text_list">
-													<li>온라인 커머스의 시작</li>
+													<li>온라인 커머스의 시작온라인 커머스의 시작온라인 커머스의 시작온라인 커머스의 시작온라인 커머스의 시작온라인 커머스의 시작온라인 커머스의 시작온라인 커머스의 시작온라인 커머스의 시작온라인 커머스의 시작온라인 커머스의 시작온라인 커머스의 시작온라인 커머스의 시작온라인 커머스의 시작</li>
 													<li>온라인 커머스 트렌드</li>
 												</ul>
 												<ul class="thumnail_sub_text_list">
@@ -133,8 +147,8 @@
 														<div class="thumnail_cols define_text"><div class="thumnail_sub_text">스토어랩 이동화 강사</div></div>
 													</li>
 													<li>
-														<div class="thumnail_cols define_label"><span class="thumnail_sub_label">일시</span></div>
-														<div class="thumnail_cols define_text"><div class="thumnail_sub_text">2022. 7. 20. 수요일 오전 9:00</div></div>
+														<div class="thumnail_cols define_label"><span class="thumnail_sub_label">일시테스트</span></div>
+														<div class="thumnail_cols define_text"><div class="thumnail_sub_text">2022. 7. 20. 수요일 오전 9:002022. 7. 20. 수요일 오전 9:002022. 7. 20. 수요일 오전 9:002022. 7. 20. 수요일 오전 9:002022. 7. 20. 수요일 오전 9:00</div></div>
 													</li>
 													<li>
 														<div class="thumnail_cols define_label"><span class="thumnail_sub_label">장소</span></div>

@@ -2,8 +2,8 @@
 var gulp = require("gulp"),
 	fileinclude = require('gulp-file-include'),
 	webserver = require('gulp-webserver'),
-	htmlbeautify = require('gulp-html-beautify'),
-	removeEmptyLines = require('gulp-remove-empty-lines');
+	htmlbeautify = require('gulp-html-beautify');
+
 
 gulp.task('default', ['fileinclude', 'watch','webserver']);
 

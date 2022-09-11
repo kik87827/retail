@@ -373,3 +373,100 @@ function tabmenuActiveFunc(target){
 		},false);
 	});
 }
+
+
+
+
+function DesignPopup(option) {
+  this.selector = null;
+  if (option.selector !== undefined) {
+    this.selector = document.querySelector(option.selector);
+  }
+  this.design_popup_wrap = document.querySelectorAll(".popup_wrap");
+  this.domHtml = document.querySelector("html");
+  this.domBody = document.querySelector("body");
+  this.pagewrap = document.querySelector(".page_wrap");
+  this.btn_closeTrigger = null;
+  this.btn_popupClose = null;
+  this.bg_design_popup = null;
+  this.scrollValue = 0;
+  this.popupShow(option.selector);
+}
+
+DesignPopup.prototype.popupShow = function(target) {
+  var objThis = this;
+  var touchstart = "ontouchstart" in window;
+  this.selector = document.querySelector(target);
+  if (this.selector == null) {
+    return;
+  }
+  this.scrollValue = window.pageYOffset;
+  if (touchstart) {
+    this.domBody.setAttribute("data-scr", window.pageYOffset);
+    this.domBody.style.marginTop = -window.pageYOffset + "px";
+    this.domHtml.classList.add("touchDis");
+  }
+  this.selector.classList.add("active");
+  setTimeout(function() {
+    objThis.selector.classList.add("motion");
+  }, 30);
+
+
+  this.btn_closeTrigger = this.selector.querySelectorAll(".close_trigger");
+  this.btn_popupClose = this.selector.querySelector(".btn_popup_close");
+
+  this.bg_design_popup = this.selector.querySelector(".popup_wrap .bg_dim");
+  this.domBody.append(this.selector);
+  this.bindEvent(this.selector);
+
+}
+DesignPopup.prototype.popupHide = function(target) {
+  var objThis = this;
+  var touchstart = "ontouchstart" in window;
+  if (target !== undefined) {
+    if (typeof target == "object") {
+      this.selector = target;
+    } else {
+      this.selector = document.querySelector(target);
+    }
+    this.selector.classList.remove("motion");
+    setTimeout(function() {
+      //remove
+      objThis.selector.classList.remove("active");
+      objThis.design_popup_wrap_active = document.querySelectorAll(".popup_wrap.active");
+      if (objThis.design_popup_wrap_active.length == 0) {
+        if (touchstart) {
+          objThis.domHtml.classList.remove("touchDis");
+          objThis.domBody.style.marginTop = 0;
+          window.scrollTo(0, parseInt(objThis.domBody.getAttribute("data-scr")));
+        }
+      }
+    }, 420);
+  }
+}
+
+DesignPopup.prototype.bindEvent = function() {
+  var objThis = this;
+
+  if (this.btn_closeTrigger.length) {
+    for (var i = 0; i < this.btn_closeTrigger.length; i++) {
+      this.btn_closeTrigger[i].addEventListener("click", function() {
+        objThis.popupHide(objThis.selector);
+      }, false);
+    }
+  }
+
+  if (this.bg_design_popup !== null) {
+    this.bg_design_popup.addEventListener("click", function(e) {
+      e.preventDefault();
+      objThis.popupHide(objThis.selector);
+    }, false);
+  }
+
+  if (this.btn_popupClose !== null) {
+    this.btn_popupClose.addEventListener("click", function(e) {
+      e.preventDefault();
+      objThis.popupHide(objThis.selector);
+    }, false);
+  }
+};
